@@ -24,7 +24,7 @@ LIBFT_DIR  = ./libft/
 
 # Source files and object files
 SRC_FILES  =  main.c lemin_ants.c lemin_read.c lemin_validate.c lemin_end.c \
-                                                                                   extra.c init.c  methods.c movement.c
+                                                                                   init.c  methods.c movement.c
 
 OBJ_FILES  = $(SRC_FILES:.c=.o)
 

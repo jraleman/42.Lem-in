@@ -25,6 +25,7 @@ static void	delete_room(void *data)
 	ft_lst_rec_free(room->paths);
 	free(data);
 	data = NULL;
+	return ;
 }
 
 /*
@@ -40,6 +41,7 @@ static void	delete_path(void *data)
 	ft_strdel(&path->door2);
 	free(data);
 	data = NULL;
+	return ;
 }
 
 /*
@@ -58,4 +60,5 @@ void	lemin_end(t_list *rooms, t_list *paths)
 		ft_lstforeach(paths, delete_path);
 		ft_lst_rec_free(paths);
 	}
+	return ;
 }

@@ -67,15 +67,19 @@ typedef struct		s_ant
 
 /*
 ** ...
-
+*/
 
 typedef struct s_lemin
 {
-	t_ant			*ant;
-	t_path		*path;
-	t_room		*room;
+	int				ants_total;
+	t_ant			*ants_list;
+	t_list 		*rooms_list;
+	t_list 		*paths_list;
+
+	//t_path		*path;
+	//t_room		*room;
 }								t_lemin;
-*/
+
 
 
 

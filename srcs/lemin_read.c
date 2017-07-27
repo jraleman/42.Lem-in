@@ -88,10 +88,6 @@ int			lemin_read(t_list **rooms, t_list **paths)
 	while ((ret = get_next_line(0, &line)))
 	{
 
-		//if (lemin_validate(*rooms, *paths, line) == ERROR)
-		// ret = ERROR;
-		//ft_puterror("Invalid file! :(", ERROR);
-			//exit(ERROR);
 		if (ret == -1)
 			ft_memdel((void **)&line);
 

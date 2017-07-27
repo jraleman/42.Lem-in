@@ -23,7 +23,7 @@ void	print_room(void *room)
 
 	if (!room)
 	{
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', FT_STD_OUT);
 		return ;
 	}
 	tmp = (t_room *)room;
@@ -61,6 +61,7 @@ void	print_path(void *tunnel)
 
 int			main(void)
 {
+	//////////////////////////////////////////////////////////////////////////////
 	int			total_ants;
 	t_list		*rooms;
 	t_list		*paths;
@@ -73,32 +74,23 @@ int			main(void)
 		lemin_end(rooms, paths);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
-	else
-	{
-
-		//printf("%d\n", total_ants);
-
+	//else
+	//{
 		if (lemin_read(&rooms, &paths) == ERROR)
 			exit(-1);
-
-
-
-
-
 		if (!rooms || !paths)
 		{
 			lemin_end(rooms, paths);
 			ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 		}
-
-
 		ants = init_ants(total_ants, rooms);
 
+////////////////////////////////////////////////////////////////////////////////
 
 		printf("%d\n", total_ants);
 		ft_lstforeach(rooms, print_room);
 		ft_lstforeach(paths, print_path);
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', FT_STD_OUT);
 
 
 		drill(rooms, paths);
@@ -111,6 +103,6 @@ int			main(void)
 
 
 		game_loop(ants, total_ants, rooms, paths);
-	}
+	//}
 	return (0);
 }
