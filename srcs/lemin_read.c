@@ -77,7 +77,7 @@ static int		is_path(char *line, t_list *rooms)
 		return (0);
 }
 
-int			lemin_read_input(t_list **rooms, t_list **paths)
+int			lemin_read(t_list **rooms, t_list **paths)
 {
 	int		ret;
 	char	*line;

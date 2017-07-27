@@ -108,5 +108,6 @@ void	game_loop(t_ant *ants, int antnum, t_list *rooms, t_list *paths)
 			write(1, "\n", 1);
 		}
 	}
-	destroy_everything(rooms, paths, 0);
+	lemin_end(rooms, paths);
+	//exit(0);
 }

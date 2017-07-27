@@ -177,8 +177,10 @@ void		ft_memdel(void **ap);
 int			ft_putstr_fd(char const *s, int fd);
 int			ft_putchar_fd(char c, int fd);
 int			ft_putendl_fd(char const *s, int fd);
-
 void		ft_puterror_fd(char const *msg, int ret, int fd);
+
+
+
 char		*ft_strchr(const char *s, int c);
 int			ft_strcmp(const char *s1, const char *s2);
 void		ft_strdel(char **as);

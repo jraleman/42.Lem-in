@@ -24,6 +24,14 @@
 ** ...
 */
 
+# define FT_STD_INT		(0)
+# define FT_STD_OUT		(1)
+# define FT_STD_ERR		(2)
+
+/*
+** ...
+*/
+
 typedef struct		s_path
 {
 	char			*door1;
@@ -59,7 +67,7 @@ typedef struct		s_ant
 
 /*
 ** ...
-*/
+
 
 typedef struct s_lemin
 {
@@ -67,18 +75,23 @@ typedef struct s_lemin
 	t_path		*path;
 	t_room		*room;
 }								t_lemin;
+*/
 
 
 
 
 
 
+int					lemin_ants(void);
+int					lemin_read(t_list **rooms, t_list **paths);
+int					lemin_validate(t_list *rooms, t_list *paths);
 
-int					lemin_get_total_ants(void);
-int					lemin_read_input(t_list **rooms, t_list **paths);
+void				lemin_end(t_list *rooms, t_list *paths);
 
 
-void				destroy_everything(t_list *rooms, t_list *paths, int error);
+
+
+//void				destroy_everything(t_list *rooms, t_list *paths, int error);
 void				drill(t_list *rooms, t_list *paths);
 int					find(void *room, int flag);
 void				game_loop(t_ant *ants, int antnum, t_list *r, t_list *p);
@@ -94,6 +107,6 @@ void				move(t_ant *ant, t_room *room);
 void				print_room(void *room);
 void				print_room_paths(t_room *room);
 void				reset_ants(t_ant *ants, int antnum);
-void				valid_or_die(t_list *rooms, t_list *paths);
+
 
 #endif

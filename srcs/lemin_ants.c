@@ -12,7 +12,11 @@
 
 #include "lemin.h"
 
-int		lemin_get_total_ants(void)
+/*
+** ...
+*/
+
+int		lemin_ants(void)
 {
 	char	*line;
 	int		ant_number;

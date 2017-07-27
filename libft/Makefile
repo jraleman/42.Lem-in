@@ -17,7 +17,7 @@ SRC_DIR := srcs
 OBJ_DIR := objs
 
 INCLS   := $(INC_DIR)
-SRCS    := ft_atoi.c ft_isdigit.c ft_isspace.c ft_lst_rec_free.c ft_lstforeach.c ft_lstpush.c ft_memdel.c ft_putchar_fd.c ft_putstr_fd.c ft_puterror_fd.c ft_strchr.c ft_strcmp.c ft_strdel.c ft_strdup.c ft_strequ.c ft_strlchr.c ft_strlen.c ft_strsub.c get_next_line.c ft_strjoin.c ft_strcpy.c ft_strcat.c ft_strnew.c
+SRCS    := ft_atoi.c ft_isdigit.c ft_isspace.c ft_lst_rec_free.c ft_lstforeach.c ft_lstpush.c ft_memdel.c ft_putchar_fd.c ft_putstr_fd.c ft_puterror_fd.c ft_strchr.c ft_strcmp.c ft_strdel.c ft_strdup.c ft_strequ.c ft_strlchr.c ft_strlen.c ft_strsub.c get_next_line.c ft_strjoin.c ft_strcpy.c ft_strcat.c ft_strnew.c ft_putendl_fd.c
 
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 

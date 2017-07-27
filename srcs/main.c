@@ -68,14 +68,17 @@ int			main(void)
 
 	rooms = NULL;
 	paths = NULL;
-	if (!(total_ants = lemin_get_total_ants()) || total_ants == 0)
-		printf("ERROR\n");
+	if (!(total_ants = lemin_ants()))
+	{
+		lemin_end(rooms, paths);
+		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
+	}
 	else
 	{
 
 		//printf("%d\n", total_ants);
 
-		if (lemin_read_input(&rooms, &paths) == ERROR)
+		if (lemin_read(&rooms, &paths) == ERROR)
 			exit(-1);
 
 
@@ -83,7 +86,11 @@ int			main(void)
 
 
 		if (!rooms || !paths)
-			destroy_everything(rooms, paths, 1);
+		{
+			lemin_end(rooms, paths);
+			ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
+		}
+
 
 		ants = init_ants(total_ants, rooms);
 
@@ -95,7 +102,13 @@ int			main(void)
 
 
 		drill(rooms, paths);
-		valid_or_die(rooms, paths);
+		if (lemin_validate(rooms, paths) != TRUE)
+		{
+			lemin_end(rooms, paths);
+			ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
+		}
+
+
 
 		game_loop(ants, total_ants, rooms, paths);
 	}
