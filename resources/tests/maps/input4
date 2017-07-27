@@ -1,0 +1,25 @@
+10
+#vertices
+##start
+start 0 0
+keep-calm-carry 0 1
+carry-on 0 2
+keep-calm 0 3
+calm-carry 0 4
+carry-on 0 5
+keep 0 6
+calm 0 7
+carry 0 8
+on 0 9
+##end
+end 0 10
+#edges
+start-keep
+keep-calm
+keep-calm-carry
+keep-calm-carry
+calm-carry-on
+keep-calm-carry-on
+keep-calm-carry-on
+keep-calm-carry-end
+calm-carry-on-end

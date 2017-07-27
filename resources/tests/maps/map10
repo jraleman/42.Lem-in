@@ -1,0 +1,11 @@
+1000
+##start
+bla 10 15
+blibli 20 15
+bloblo 10 20
+blabla 40 50
+##end
+blo 2 4
+bla-blibli
+blibli-bloblo
+bloblo-blo

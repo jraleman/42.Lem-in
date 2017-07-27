@@ -1,0 +1,29 @@
+50
+##start
+#map ok
+bla 23 3
+bli 16 7
+#commentaire
+blo 16 3
+blu 16 5
+bloblo 9 3
+##tavern
+blublu 1 5
+blabla 4 8
+##end
+blibli 9 5
+blibli-blu
+blibli-blublu
+bla-blo
+blu-blo
+bloblo-bli
+blo-bloblo
+#autre commentaire
+blu-bli
+bli-bla
+blabla-blublu
+blabla-bli
+blabla-blu
+blublu-bloblo
+bla-blo
+blu-blo

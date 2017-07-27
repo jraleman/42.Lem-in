@@ -1,0 +1,14 @@
+14
+##start
+#map nok a decouvrir apres la ponderation
+#un autre
+0 1 0
+##end
+#comm
+1 5 0
+2 9 0
+0-2
+3 13 0
+0-2
+2-3
+3-1

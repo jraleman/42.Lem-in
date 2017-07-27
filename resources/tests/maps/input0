@@ -1,0 +1,16 @@
+10
+##start
+alpha 1 1
+beta 2 2
+charly 3 3
+delta 4 4
+echo 5 5
+falcon 6 6
+##end
+gaston 7 7
+alpha-beta
+beta-charly
+charly-delta
+delta-echo
+echo-falcon
+falcon-gaston
