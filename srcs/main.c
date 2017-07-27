@@ -16,8 +16,13 @@
 
 
 
+////////////////////////////////////////////////////////////////////////////////
 
-void	print_room(void *room)
+/*
+** ...
+*/
+
+static void	print_room(void *room)
 {
 	t_room		*tmp;
 
@@ -33,28 +38,36 @@ void	print_room(void *room)
 		printf("##end\n");
 	printf("%s %d %d\n", tmp->name,
 							tmp->x, tmp->y);
+	return ;
 }
 
-void	print_path(void *tunnel)
+/*
+** ...
+*/
+
+static void	print_path(void *tunnel)
 {
 	t_path		*path;
 
 	path = (t_path *)tunnel;
 	printf("%s-%s\n", path->door1, path->door2);
+	return ;
 }
 
+/*
+** ...
+*/
 
+void lemin_print(t_list rooms, t_list paths, int ants)
+{
+	printf("%d\n", total_ants);
+	ft_lstforeach(rooms, print_room);
+	ft_lstforeach(paths, print_path);
+	ft_putchar_fd('\n', FT_STD_OUT);
+	return ;
+}
 
-
-
-
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -87,11 +100,9 @@ int			main(void)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-		printf("%d\n", total_ants);
-		ft_lstforeach(rooms, print_room);
-		ft_lstforeach(paths, print_path);
-		ft_putchar_fd('\n', FT_STD_OUT);
+		lemin_print(rooms_list, paths_list, ants_total);
 
+////////////////////////////////////////////////////////////////////////////////
 
 		drill(rooms, paths);
 		if (lemin_validate(rooms, paths) != TRUE)
