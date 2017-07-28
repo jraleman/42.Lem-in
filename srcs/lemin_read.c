@@ -16,9 +16,9 @@
 ** Read and checks if the line is a command.
 */
 
-static int		read_command(char *line)
+static int	read_command(char *line)
 {
-	int ret;
+	int		ret;
 
 	if (*line != '#')
 		ret = 0;
@@ -35,7 +35,7 @@ static int		read_command(char *line)
 ** Read and checks if the line is a room.
 */
 
-static int		read_room(char *line)
+static int	read_room(char *line)
 {
 	while (*line && *line != ' ')
 		line += 1;
@@ -62,9 +62,9 @@ static int		read_room(char *line)
 ** Read and checks if the line is a path.
 */
 
-static int		read_path(char *line, t_list *rooms)
+static int	read_path(char *line, t_list *rooms)
 {
-	t_path		tmp;
+	t_path	tmp;
 
 	if (ft_strchr(line, '-'))
 	{
@@ -96,10 +96,11 @@ int			lemin_read(t_list **rooms, t_list **paths)
 {
 	int		ret;
 	char	*line;
+	int		flag;
+	int		rooms_done;
 
-	int		flag = NORMAL;
-	int		rooms_done = 0;
-
+	flag = NORMAL;
+	rooms_done = 0;
 	while ((ret = get_next_line(0, &line)) > 0)
 	{
 		if (read_command(line))
