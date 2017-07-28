@@ -63,20 +63,7 @@ void		drill(t_list *rooms, t_list *paths)
 	}
 }
 
-void		print_room_paths(t_room *room)
-{
-	t_list		*ls;
-	t_room		*ptr;
 
-	printf("Room %s:\n", room->name);
-	ls = room->paths;
-	while (ls)
-	{
-		ptr = (t_room *)ls->content;
-		printf("->%s\n", ptr->name);
-		ls = ls->next;
-	}
-}
 
 int			find(void *room, int targetflag)
 {

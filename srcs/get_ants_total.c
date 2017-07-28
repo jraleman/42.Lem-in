@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lemin_get_total_ants.c                             :+:      :+:    :+:   */
+/*   ants_total.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 ** ...
 */
 
-int		lemin_ants(void)
+int		get_ants_total(void)
 {
 	char	*line;
 	int		ant_number;

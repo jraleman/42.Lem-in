@@ -60,3 +60,19 @@ void lemin_print(t_list *rooms, t_list *paths, int ants)
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
+
+
+void		print_room_paths(t_room *room)
+{
+	t_list		*ls;
+	t_room		*ptr;
+
+	printf("Room %s:\n", room->name);
+	ls = room->paths;
+	while (ls)
+	{
+		ptr = (t_room *)ls->content;
+		printf("->%s\n", ptr->name);
+		ls = ls->next;
+	}
+}

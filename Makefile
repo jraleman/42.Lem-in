@@ -23,8 +23,8 @@ INC_DIR    = ./includes/
 LIBFT_DIR  = ./libft/
 
 # Source files and object files
-SRC_FILES  =  main.c lemin_ants.c lemin_read.c lemin_validate.c lemin_end.c lemin_print.c \
-                                                                                   init.c  methods.c movement.c
+SRC_FILES  =  main.c lemin_read.c lemin_validate.c lemin_end.c lemin_print.c lemin_init.c get_ants_total.c\
+                                                                                   methods.c movement.c
 
 OBJ_FILES  = $(SRC_FILES:.c=.o)
 
