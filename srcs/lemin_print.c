@@ -20,7 +20,7 @@ static void	print_room(void *room)
 {
 	t_room	*tmp;
 
-	if (!room)
+	if (room == NULL)
 	{
 		ft_putchar_fd('\n', FT_STD_OUT);
 		return ;

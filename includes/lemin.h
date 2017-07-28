@@ -95,10 +95,9 @@ typedef struct	s_lemin
 int				lemin_read(t_lemin *lemin);
 int				lemin_validate(t_lemin *lemin);
 void			lemin_end(t_lemin *lemin);
-//void			lemin_start(t_list *rooms, t_list *paths);
 void			lemin_start(t_lemin *lemin);
 void 			lemin_print(t_lemin *lemin);
-void			lemin_loop(t_lemin *lemin, t_ant *ants, int antnum);
+void			lemin_loop(t_lemin *lemin, t_ant *ants);
 t_lemin			*lemin_init(void);
 
 
@@ -121,10 +120,10 @@ t_room			*init_room(char *line, int room_flag);
 
 
 
-
-int					find(void *room, int flag);
-void				move(t_ant *ant, t_room *room);
-void				reset_ants(t_ant *ants, int antnum);
+void				play(t_ant *ant);
+//int					find(void *room, int flag);
+//void				move(t_ant *ant, t_room *room);
+//void				reset_ants(t_ant *ants, int antnum);
 
 
 #endif
