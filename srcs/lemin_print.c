@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** Print the rooms.
 */
 
 static void	print_room(void *room)
@@ -36,7 +36,7 @@ static void	print_room(void *room)
 }
 
 /*
-** ...
+** Print the paths.
 */
 
 static void	print_path(void *tunnel)
@@ -49,7 +49,7 @@ static void	print_path(void *tunnel)
 }
 
 /*
-** ...
+** Print to the stdout the rooms and paths.
 */
 
 void lemin_print(t_list *rooms, t_list *paths, int ants)
@@ -59,20 +59,4 @@ void lemin_print(t_list *rooms, t_list *paths, int ants)
 	ft_lstforeach(paths, print_path);
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
-}
-
-
-void		print_room_paths(t_room *room)
-{
-	t_list		*ls;
-	t_room		*ptr;
-
-	printf("Room %s:\n", room->name);
-	ls = room->paths;
-	while (ls)
-	{
-		ptr = (t_room *)ls->content;
-		printf("->%s\n", ptr->name);
-		ls = ls->next;
-	}
 }

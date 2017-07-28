@@ -104,8 +104,9 @@ int					lemin_read(t_list **rooms, t_list **paths);
 int					lemin_validate(t_list *rooms, t_list *paths);
 
 void 				lemin_print(t_list *rooms, t_list *paths, int ants);
-//void				lemin_end(t_list *rooms, t_list *paths);
 
+
+t_ant				*init_ants(int total_ants, t_list *rooms);
 
 
 int					get_ants_total(void);
@@ -125,8 +126,8 @@ t_room				*init_room(char *line, int room_flag);
 void				drill(t_list *rooms, t_list *paths);
 int					find(void *room, int flag);
 void			game_loop(t_lemin *lemin, t_ant *ants, int antnum);
-t_room				*get_room_by_name(char *name, t_list *list);
-t_room				*get_room_by_flag(int flag, t_list *list);
+t_room				*get_room_name(char *name, t_list *list);
+t_room				*get_room_flag(int flag, t_list *list);
 
 
 

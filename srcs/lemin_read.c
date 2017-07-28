@@ -1,11 +1,11 @@
-#include "libft.h"
+
 #include "lemin.h"
 
 /*
 ** ...
 */
 
-static int		is_command(char *line)
+static int		read_command(char *line)
 {
 	int ret;
 
@@ -24,7 +24,7 @@ static int		is_command(char *line)
 ** ...
 */
 
-static int		is_room(char *line)
+static int		read_room(char *line)
 {
 	while (*line && *line != ' ')
 		line++;
@@ -51,7 +51,7 @@ static int		is_room(char *line)
 ** ...
 */
 
-static int		is_path(char *line, t_list *rooms)
+static int		read_path(char *line, t_list *rooms)
 {
 	t_path		tmp;
 
@@ -59,8 +59,8 @@ static int		is_path(char *line, t_list *rooms)
 	{
 		tmp.door1 = ft_strsub(line, 0, ft_strlchr(line, '-'));
 		tmp.door2 = ft_strdup(line + ft_strlchr(line, '-') + 1);
-		if ((get_room_by_name(tmp.door1, rooms)
-			&& get_room_by_name(tmp.door2, rooms)))
+		if ((get_room_name(tmp.door1, rooms)
+			&& get_room_name(tmp.door2, rooms)))
 		{
 			free(tmp.door1);
 			free(tmp.door2);
@@ -76,6 +76,10 @@ static int		is_path(char *line, t_list *rooms)
 	else
 		return (0);
 }
+
+/*
+** ...
+*/
 
 int			lemin_read(t_list **rooms, t_list **paths)
 {
@@ -96,14 +100,14 @@ int			lemin_read(t_list **rooms, t_list **paths)
 
 
 
-		if (is_command(line))
-			flag = (flag == NORMAL) ? is_command(line) : flag;
-		else if (is_room(line) && !rooms_done)
+		if (read_command(line))
+			flag = (flag == NORMAL) ? read_command(line) : flag;
+		else if (read_room(line) && !rooms_done)
 		{
 			*rooms = ft_lstpush(*rooms, init_room(line, flag));
 			flag = NORMAL;
 		}
-		else if (is_path(line, *rooms) && (rooms_done = 1))
+		else if (read_path(line, *rooms) && (rooms_done = 1))
 			*paths = ft_lstpush(*paths, init_path(line));
 
 		else
