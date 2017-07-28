@@ -82,13 +82,15 @@ void		lemin_loop(t_lemin *lemin)
 		reset_ants(lemin->ants_list, lemin->ants_total);
 		while (!turn_ended && !game_over(lemin->ants_list, lemin->ants_total))
 		{
-			turn_ended = 1;
 			i = 0;
+			turn_ended = 1;
 			while (i < lemin->ants_total)
 			{
 				if (can_move(lemin->ants_list + i))
 				{
-					lemin_play(lemin->ants_list + i);
+					lemin->ants_list += i;
+					lemin_play(lemin);
+					lemin->ants_list -= i;
 					turn_ended = 0;
 				}
 				i += 1;

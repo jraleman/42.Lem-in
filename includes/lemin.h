@@ -101,7 +101,9 @@ void			lemin_loop(t_lemin *lemin);
 t_lemin			*lemin_init(void);
 
 
-void			lemin_play(t_ant *ant);
+
+
+void			lemin_play(t_lemin *lemin);
 
 
 

@@ -22,7 +22,7 @@ void	move(t_ant *ant, t_room *room)
 	printf("L%d-%s ", ant->id, ant->room->name);
 }
 
-void		lemin_play(t_ant *ant)
+void		lemin_play(t_lemin *lemin)
 {
 	t_list		*ls;
 	t_room		*tmp;
@@ -31,11 +31,11 @@ void		lemin_play(t_ant *ant)
 	int			result;
 
 	distance = 2147483647;
-	ls = ant->room->paths;
+	ls = lemin->ants_list->room->paths;
 	while (ls)
 	{
 		tmp = (t_room *)ls->content;
-		if ((tmp->flag == ENDROOM || !tmp->has_ant) && tmp != ant->last)
+		if ((tmp->flag == ENDROOM || !tmp->has_ant) && tmp != lemin->ants_list->last)
 		{
 			result = find_room(tmp, ENDROOM);
 			if (result < distance && result > -1)
@@ -47,5 +47,5 @@ void		lemin_play(t_ant *ant)
 		ls = ls->next;
 	}
 	if (distance < 2147483647)
-		move(ant, next);
+		move(lemin->ants_list, next);
 }
