@@ -71,24 +71,24 @@ void	reset_ants(t_ant *ants, int antnum)
 }
 
 
-void		lemin_loop(t_lemin *lemin, t_ant *ants)
+void		lemin_loop(t_lemin *lemin)
 {
 	int		i;
 	int		turn_ended;
 
-	while (!game_over(ants, lemin->ants_total))
+	while (!game_over(lemin->ants_list, lemin->ants_total))
 	{
 		turn_ended = 0;
-		reset_ants(ants, lemin->ants_total);
-		while (!turn_ended && !game_over(ants, lemin->ants_total))
+		reset_ants(lemin->ants_list, lemin->ants_total);
+		while (!turn_ended && !game_over(lemin->ants_list, lemin->ants_total))
 		{
 			turn_ended = 1;
 			i = 0;
 			while (i < lemin->ants_total)
 			{
-				if (can_move(ants + i))
+				if (can_move(lemin->ants_list + i))
 				{
-					play(ants + i);
+					lemin_play(lemin->ants_list + i);
 					turn_ended = 0;
 				}
 				i += 1;

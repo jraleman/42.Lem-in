@@ -45,7 +45,7 @@ static int	validate_flags(t_list *rooms, t_list *paths)
 
 static int	validate_path(t_room *rooms, t_list *paths)
 {
-	return ((rooms != 0 && paths != 0) && find(rooms, ENDROOM) >= 0);
+	return ((rooms != 0 && paths != 0) && find_room(rooms, ENDROOM) >= 0);
 }
 
 /*

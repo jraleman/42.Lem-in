@@ -97,8 +97,19 @@ int				lemin_validate(t_lemin *lemin);
 void			lemin_end(t_lemin *lemin);
 void			lemin_start(t_lemin *lemin);
 void 			lemin_print(t_lemin *lemin);
-void			lemin_loop(t_lemin *lemin, t_ant *ants);
+void			lemin_loop(t_lemin *lemin);
 t_lemin			*lemin_init(void);
+
+
+void			lemin_play(t_ant *ant);
+
+
+
+/*
+** ...
+*/
+
+int				find_room(void *room, int flag);
 
 
 /*
@@ -116,14 +127,5 @@ t_room			*get_room_flag(int flag, t_list *list);
 t_ant			*init_ants(int total_ants, t_list *rooms);
 t_path			*init_path(char *line);
 t_room			*init_room(char *line, int room_flag);
-
-
-
-
-void				play(t_ant *ant);
-//int					find(void *room, int flag);
-//void				move(t_ant *ant, t_room *room);
-//void				reset_ants(t_ant *ants, int antnum);
-
 
 #endif

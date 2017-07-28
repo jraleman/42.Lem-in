@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lemin_play.c                                       :+:      :+:    :+:   */
+/*   play_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,43 +13,6 @@
 
 #include "lemin.h"
 
-
-
-
-int			find(void *room, int targetflag)
-{
-	t_room		*current;
-	t_list		*testing;
-	int			smallestpath;
-	int			lastpath;
-
-	current = (t_room *)room;
-	if (current->flag == targetflag)
-		return (0);
-	if (current->busy)
-		return (-1);
-	current->busy = 1;
-	smallestpath = 2147483647;
-	testing = current->paths;
-	while (testing)
-	{
-		if ((lastpath = find(testing->content, targetflag)) < smallestpath
-														&& lastpath != -1)
-			smallestpath = 1 + lastpath;
-		testing = testing->next;
-	}
-	current->busy = 0;
-	if (smallestpath == 2147483647)
-		return (-1);
-	else
-		return (smallestpath);
-}
-
-
-
-
-
-
 void	move(t_ant *ant, t_room *room)
 {
 	ant->room->has_ant = 0;
@@ -59,7 +22,7 @@ void	move(t_ant *ant, t_room *room)
 	printf("L%d-%s ", ant->id, ant->room->name);
 }
 
-void	play(t_ant *ant)
+void		lemin_play(t_ant *ant)
 {
 	t_list		*ls;
 	t_room		*tmp;
@@ -74,7 +37,7 @@ void	play(t_ant *ant)
 		tmp = (t_room *)ls->content;
 		if ((tmp->flag == ENDROOM || !tmp->has_ant) && tmp != ant->last)
 		{
-			result = find(tmp, ENDROOM);
+			result = find_room(tmp, ENDROOM);
 			if (result < distance && result > -1)
 			{
 				distance = result;

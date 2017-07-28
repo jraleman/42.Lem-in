@@ -28,6 +28,6 @@ int			main(void)
 		lemin_end(lemin);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
-	lemin_loop(lemin, lemin->ants_list, lemin->ants_total);
+	lemin_loop(lemin);
 	return (0);
 }
