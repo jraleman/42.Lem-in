@@ -13,20 +13,19 @@
 #include "lemin.h"
 
 /*
-** ...
+** Initialize the path.
 */
 
-t_path	*init_path(char *line)
+t_path		*init_path(char *line)
 {
-	t_path		*newpath;
-	int			score_pos;
+	int		i;
+	t_path	*newpath;
 
-	newpath = malloc(sizeof(t_path));
-	if (!newpath)
-		return (NULL);
-	score_pos = (int)ft_strlchr(line, '-');
-	newpath->door1 = ft_strsub(line, 0, score_pos);
-	newpath->door2 = ft_strdup(line + score_pos + 1);
+	if (!(newpath = malloc(sizeof(t_path))))
+		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
+	i = (int)ft_strlchr(line, '-');
+	newpath->door1 = ft_strsub(line, 0, i);
+	newpath->door2 = ft_strdup(line + i + 1);
 	free(line);
 	return (newpath);
 }

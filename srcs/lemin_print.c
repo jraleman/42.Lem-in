@@ -18,7 +18,7 @@
 
 static void	print_room(void *room)
 {
-	t_room		*tmp;
+	t_room	*tmp;
 
 	if (!room)
 	{
@@ -30,8 +30,7 @@ static void	print_room(void *room)
 		printf("##start\n");
 	else if (tmp->flag == ENDROOM)
 		printf("##end\n");
-	printf("%s %d %d\n", tmp->name,
-							tmp->x, tmp->y);
+	printf("%s %d %d\n", tmp->name, tmp->x, tmp->y);
 	return ;
 }
 
@@ -41,7 +40,7 @@ static void	print_room(void *room)
 
 static void	print_path(void *tunnel)
 {
-	t_path		*path;
+	t_path	*path;
 
 	path = (t_path *)tunnel;
 	printf("%s-%s\n", path->door1, path->door2);
@@ -52,7 +51,7 @@ static void	print_path(void *tunnel)
 ** Print to the stdout the rooms and paths.
 */
 
-void lemin_print(t_list *rooms, t_list *paths, int ants)
+void		lemin_print(t_list *rooms, t_list *paths, int ants)
 {
 	printf("%d\n", ants);
 	ft_lstforeach(rooms, print_room);

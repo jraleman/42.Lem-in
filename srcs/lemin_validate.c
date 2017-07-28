@@ -52,7 +52,7 @@ static int	validate_path(t_room *rooms, t_list *paths)
 ** ...
 */
 
-int 		lemin_validate(t_list *rooms, t_list *paths)
+int			lemin_validate(t_list *rooms, t_list *paths)
 {
 	return (validate_path(get_room_flag(STARTROOM, rooms), paths) \
 			&& validate_flags(rooms, paths));

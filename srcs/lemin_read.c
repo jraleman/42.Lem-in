@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lemin_read.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/07/28 03:04:05 by jaleman           #+#    #+#             */
+/*   Updated: 2017/07/28 03:04:05 by jaleman          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "lemin.h"
 
@@ -27,21 +38,21 @@ static int		read_command(char *line)
 static int		read_room(char *line)
 {
 	while (*line && *line != ' ')
-		line++;
+		line += 1;
 	if (*line != ' ')
 		return (0);
-	line++;
+	line += 1;
 	if (*line == '-')
-		line++;
+		line += 1;
 	while (*line && ft_isdigit(*line))
-		line++;
+		line += 1;
 	if (*line != ' ')
 		return (0);
-	line++;
+	line += 1;
 	if (*line == '-')
-		line++;
+		line += 1;
 	while (*line && ft_isdigit(*line))
-		line++;
+		line += 1;
 	if (*line != '\0')
 		return (0);
 	return (1);
@@ -89,17 +100,8 @@ int			lemin_read(t_list **rooms, t_list **paths)
 	int		flag = NORMAL;
 	int		rooms_done = 0;
 
-	while ((ret = get_next_line(0, &line)))
+	while ((ret = get_next_line(0, &line)) > 0)
 	{
-
-		if (ret == -1)
-			ft_memdel((void **)&line);
-
-
-
-
-
-
 		if (read_command(line))
 			flag = (flag == NORMAL) ? read_command(line) : flag;
 		else if (read_room(line) && !rooms_done)
@@ -109,7 +111,6 @@ int			lemin_read(t_list **rooms, t_list **paths)
 		}
 		else if (read_path(line, *rooms) && (rooms_done = 1))
 			*paths = ft_lstpush(*paths, init_path(line));
-
 		else
 			break ;
 	}
