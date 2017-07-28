@@ -12,12 +12,16 @@
 
 #include "lemin.h"
 
+/*
+** ...
+*/
+
 int			find_room(void *room, int targetflag)
 {
-	t_room		*current;
-	t_list		*testing;
-	int			smallestpath;
-	int			lastpath;
+	t_room	*current;
+	t_list	*testing;
+	int		smallestpath;
+	int		lastpath;
 
 	current = (t_room *)room;
 	if (current->flag == targetflag)

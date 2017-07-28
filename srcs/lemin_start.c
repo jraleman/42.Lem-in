@@ -12,29 +12,34 @@
 
 #include "lemin.h"
 
+/*
+** ...
+*/
+
 void		lemin_start(t_lemin *lemin)
 {
-	t_list	*tmp_r;
-	t_list	*tmp_p;
 	t_room	*room;
 	t_path	*path;
+	t_list	*tmp_room;
+	t_list	*tmp_path;
 
-	tmp_r = lemin->rooms_list;
-	while (tmp_r)
+	tmp_room = lemin->rooms_list;
+	while (tmp_room != 0)
 	{
-		room = (t_room *)tmp_r->content;
-		tmp_p = lemin->paths_list;
-		while (tmp_p)
+		room = (t_room *)tmp_room->content;
+		tmp_path = lemin->paths_list;
+		while (tmp_path != 0)
 		{
-			path = (t_path *)tmp_p->content;
+			path = (t_path *)tmp_path->content;
 			if (ft_strequ(path->door1, room->name))
 				room->paths = ft_lstpush(room->paths,
 						get_room_name(path->door2, lemin->rooms_list));
 			if (ft_strequ(path->door2, room->name))
 				room->paths = ft_lstpush(room->paths,
 						get_room_name(path->door1, lemin->rooms_list));
-			tmp_p = tmp_p->next;
+			tmp_path = tmp_path->next;
 		}
-		tmp_r = tmp_r->next;
+		tmp_room = tmp_room->next;
 	}
+	return ;
 }

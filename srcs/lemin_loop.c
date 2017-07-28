@@ -12,8 +12,11 @@
 
 #include "lemin.h"
 
+/*
+** ...
+*/
 
-int		can_move(t_ant *ant)
+static int		can_move(t_ant *ant)
 {
 	t_list		*ls;
 	t_room		*tmp;
@@ -41,6 +44,10 @@ int		can_move(t_ant *ant)
 	return (yes && may_move);
 }
 
+/*
+** ...
+*/
+
 static int	game_over(t_ant *ants, int antnum)
 {
 	int		i;
@@ -57,6 +64,9 @@ static int	game_over(t_ant *ants, int antnum)
 	return (1);
 }
 
+/*
+** ...
+*/
 
 void	reset_ants(t_ant *ants, int antnum)
 {
@@ -68,8 +78,12 @@ void	reset_ants(t_ant *ants, int antnum)
 		ants[i].did_turn = 0;
 		i++;
 	}
+	return ;
 }
 
+/*
+** ...
+*/
 
 void		lemin_loop(t_lemin *lemin)
 {
@@ -99,4 +113,5 @@ void		lemin_loop(t_lemin *lemin)
 		}
 	}
 	lemin_end(lemin);
+	return ;
 }
