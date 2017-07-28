@@ -22,7 +22,7 @@ int			main(void)
 
 	lemin = lemin_init();
 	lemin_print(lemin->rooms_list, lemin->paths_list, lemin->ants_total);
-	drill(lemin->rooms_list, lemin->paths_list);
+	lemin_start(lemin->rooms_list, lemin->paths_list);
 	if (lemin_validate(lemin->rooms_list, lemin->paths_list) != TRUE)
 	{
 		lemin_end(lemin);

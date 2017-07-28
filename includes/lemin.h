@@ -94,9 +94,11 @@ typedef struct	s_lemin
 
 int				lemin_read(t_list **rooms, t_list **paths);
 int				lemin_validate(t_list *rooms, t_list *paths);
-void 			lemin_print(t_list *rooms, t_list *paths, int ants);
 void			lemin_end(t_lemin *lemin);
+void			lemin_start(t_list *rooms, t_list *paths);
+void 			lemin_print(t_list *rooms, t_list *paths, int ants);
 t_lemin			*lemin_init(void);
+
 
 /*
 ** ...
