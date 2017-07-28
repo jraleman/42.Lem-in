@@ -51,11 +51,11 @@ static void	print_path(void *tunnel)
 ** Print to the stdout the rooms and paths.
 */
 
-void		lemin_print(t_list *rooms, t_list *paths, int ants)
+void		lemin_print(t_lemin *lemin)
 {
-	printf("%d\n", ants);
-	ft_lstforeach(rooms, print_room);
-	ft_lstforeach(paths, print_path);
+	printf("%d\n", lemin->ants_total);
+	ft_lstforeach(lemin->rooms_list, print_room);
+	ft_lstforeach(lemin->paths_list, print_path);
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }

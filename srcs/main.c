@@ -21,8 +21,8 @@ int			main(void)
 	t_lemin	*lemin;
 
 	lemin = lemin_init();
-	lemin_print(lemin->rooms_list, lemin->paths_list, lemin->ants_total);
-	lemin_start(lemin->rooms_list, lemin->paths_list);
+	lemin_print(lemin);
+	lemin_start(lemin);
 	if (lemin_validate(lemin) != TRUE)
 	{
 		lemin_end(lemin);
