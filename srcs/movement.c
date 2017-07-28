@@ -123,5 +123,4 @@ void	game_loop(t_ant *ants, int antnum, t_list *rooms, t_list *paths)
 		}
 	}
 	lemin_end(rooms, paths);
-	//exit(0);
 }

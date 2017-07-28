@@ -12,108 +12,51 @@
 
 #include "lemin.h"
 
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-/*
-** ...
-*/
-
-static void	print_room(void *room)
-{
-	t_room		*tmp;
-
-	if (!room)
-	{
-		ft_putchar_fd('\n', FT_STD_OUT);
-		return ;
-	}
-	tmp = (t_room *)room;
-	if (tmp->flag == STARTROOM)
-		printf("##start\n");
-	else if (tmp->flag == ENDROOM)
-		printf("##end\n");
-	printf("%s %d %d\n", tmp->name,
-							tmp->x, tmp->y);
-	return ;
-}
-
-/*
-** ...
-*/
-
-static void	print_path(void *tunnel)
-{
-	t_path		*path;
-
-	path = (t_path *)tunnel;
-	printf("%s-%s\n", path->door1, path->door2);
-	return ;
-}
-
-/*
-** ...
-*/
-
-void lemin_print(t_list rooms, t_list paths, int ants)
-{
-	printf("%d\n", total_ants);
-	ft_lstforeach(rooms, print_room);
-	ft_lstforeach(paths, print_path);
-	ft_putchar_fd('\n', FT_STD_OUT);
-	return ;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 int			main(void)
 {
-	//////////////////////////////////////////////////////////////////////////////
-	int			total_ants;
-	t_list		*rooms;
-	t_list		*paths;
+
+////////////////////////////////////////////////////////////////////////////////
+// Lemin init()
+////////////////////////////////////////////////////////////////////////////////
+	int			ants_total;
+	t_list		*rooms_list;
+	t_list		*paths_list;
 	t_ant		*ants;
 
-	rooms = NULL;
-	paths = NULL;
-	if (!(total_ants = lemin_ants()))
+	rooms_list = NULL;
+	paths_list = NULL;
+	if (!(ants_total = lemin_ants()))
 	{
-		lemin_end(rooms, paths);
+		lemin_end(rooms_list, paths_list);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
-	//else
-	//{
-		if (lemin_read(&rooms, &paths) == ERROR)
+
+		if (lemin_read(&rooms_list, &paths_list) == ERROR)
 			exit(-1);
-		if (!rooms || !paths)
+		if (!rooms_list || !paths_list)
 		{
-			lemin_end(rooms, paths);
+			lemin_end(rooms_list, paths_list);
 			ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 		}
-		ants = init_ants(total_ants, rooms);
+		ants = init_ants(ants_total, rooms_list);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-		lemin_print(rooms_list, paths_list, ants_total);
+	lemin_print(rooms_list, paths_list, ants_total);
 
-////////////////////////////////////////////////////////////////////////////////
-
-		drill(rooms, paths);
-		if (lemin_validate(rooms, paths) != TRUE)
-		{
-			lemin_end(rooms, paths);
-			ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
-		}
+	// check this one out
+	drill(rooms_list, paths_list);
 
 
 
-		game_loop(ants, total_ants, rooms, paths);
-	//}
+	if (lemin_validate(rooms_list, paths_list) != TRUE)
+	{
+		lemin_end(rooms_list, paths_list);
+		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
+	}
+
+
+
+	game_loop(ants, ants_total, rooms_list, paths_list);
 	return (0);
 }

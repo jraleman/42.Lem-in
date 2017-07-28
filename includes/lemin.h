@@ -88,7 +88,12 @@ typedef struct s_lemin
 
 int					lemin_ants(void);
 int					lemin_read(t_list **rooms, t_list **paths);
+
+void 				lemin_print(t_list *rooms, t_list *paths, int ants);
+
 int					lemin_validate(t_list *rooms, t_list *paths);
+
+
 
 void				lemin_end(t_list *rooms, t_list *paths);
 
@@ -108,7 +113,7 @@ t_room				*init_room(char *line, int room_flag);
 
 
 void				move(t_ant *ant, t_room *room);
-void				print_room(void *room);
+//void				print_room(void *room);
 void				print_room_paths(t_room *room);
 void				reset_ants(t_ant *ants, int antnum);
 
