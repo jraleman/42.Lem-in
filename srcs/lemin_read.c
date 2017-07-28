@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** Read and checks if the line is a command.
 */
 
 static int		read_command(char *line)
@@ -32,7 +32,7 @@ static int		read_command(char *line)
 }
 
 /*
-** ...
+** Read and checks if the line is a room.
 */
 
 static int		read_room(char *line)
@@ -59,7 +59,7 @@ static int		read_room(char *line)
 }
 
 /*
-** ...
+** Read and checks if the line is a path.
 */
 
 static int		read_path(char *line, t_list *rooms)
@@ -89,7 +89,7 @@ static int		read_path(char *line, t_list *rooms)
 }
 
 /*
-** ...
+** Read a line and check if it's a command, path, or a comment.
 */
 
 int			lemin_read(t_list **rooms, t_list **paths)

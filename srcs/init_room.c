@@ -14,6 +14,9 @@
 
 /*
 ** Initialize the room.
+** ...
+** ...
+** ...
 ** Maybe compare with whitespaces ('\n' && ' '), check the pdf to see if
 ** it's allowed.
 */

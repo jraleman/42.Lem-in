@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** Initialize the lemin structure.
 */
 
 t_lemin		*lemin_init(void)

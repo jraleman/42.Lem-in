@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** Validate a flag.
 */
 
 static int	validate_flags(t_list *rooms, t_list *paths)
@@ -40,7 +40,7 @@ static int	validate_flags(t_list *rooms, t_list *paths)
 }
 
 /*
-** ...
+** Validate a path.
 */
 
 static int	validate_path(t_room *rooms, t_list *paths)
@@ -49,7 +49,7 @@ static int	validate_path(t_room *rooms, t_list *paths)
 }
 
 /*
-** ...
+** Validate the path and the flags.
 */
 
 int			lemin_validate(t_list *rooms, t_list *paths)
