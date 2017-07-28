@@ -92,7 +92,7 @@ typedef struct	s_lemin
 ** ...
 */
 
-int				lemin_read(t_list **rooms, t_list **paths);
+int				lemin_read(t_lemin *lemin);
 int				lemin_validate(t_list *rooms, t_list *paths);
 void			lemin_end(t_lemin *lemin);
 void			lemin_start(t_list *rooms, t_list *paths);
@@ -118,7 +118,6 @@ t_room			*init_room(char *line, int room_flag);
 
 
 
-void				drill(t_list *rooms, t_list *paths);
 int					find(void *room, int flag);
 void				game_loop(t_lemin *lemin, t_ant *ants, int antnum);
 void				move(t_ant *ant, t_room *room);

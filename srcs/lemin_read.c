@@ -92,7 +92,7 @@ static int	read_path(char *line, t_list *rooms)
 ** Read a line and check if it's a command, path, or a comment.
 */
 
-int			lemin_read(t_list **rooms, t_list **paths)
+int			lemin_read(t_lemin *lemin)
 {
 	int		ret;
 	char	*line;
@@ -107,11 +107,11 @@ int			lemin_read(t_list **rooms, t_list **paths)
 			flag = (flag == NORMAL) ? read_command(line) : flag;
 		else if (read_room(line) && !rooms_done)
 		{
-			*rooms = ft_lstpush(*rooms, init_room(line, flag));
+			lemin->rooms_list = ft_lstpush(lemin->rooms_list, init_room(line, flag));
 			flag = NORMAL;
 		}
-		else if (read_path(line, *rooms) && (rooms_done = 1))
-			*paths = ft_lstpush(*paths, init_path(line));
+		else if (read_path(line, lemin->rooms_list) && (rooms_done = 1))
+			lemin->paths_list = ft_lstpush(lemin->paths_list, init_path(line));
 		else
 			break ;
 	}

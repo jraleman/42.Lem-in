@@ -29,7 +29,7 @@ t_lemin		*lemin_init(void)
 		lemin_end(init);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
-	if (lemin_read(&init->rooms_list, &init->paths_list) == ERROR)
+	if (lemin_read(init) == ERROR)
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	if (!init->rooms_list || !init->paths_list)
 	{
