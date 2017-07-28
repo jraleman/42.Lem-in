@@ -107,7 +107,8 @@ int			lemin_read(t_lemin *lemin)
 			flag = (flag == NORMAL) ? read_command(line) : flag;
 		else if (read_room(line) && !rooms_done)
 		{
-			lemin->rooms_list = ft_lstpush(lemin->rooms_list, init_room(line, flag));
+			lemin->rooms_list = ft_lstpush(lemin->rooms_list, \
+											init_room(line, flag));
 			flag = NORMAL;
 		}
 		else if (read_path(line, lemin->rooms_list) && (rooms_done = 1))

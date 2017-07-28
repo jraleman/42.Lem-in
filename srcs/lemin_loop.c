@@ -16,12 +16,12 @@
 ** ...
 */
 
-static int		can_move(t_ant *ant)
+static int	can_move(t_ant *ant)
 {
-	t_list		*ls;
-	t_room		*tmp;
-	int			yes;
-	int			may_move;
+	int		yes;
+	int		may_move;
+	t_list	*ls;
+	t_room	*tmp;
 
 	if (ant->room->flag == ENDROOM)
 		return (0);
@@ -68,7 +68,7 @@ static int	game_over(t_ant *ants, int antnum)
 ** ...
 */
 
-void	reset_ants(t_ant *ants, int antnum)
+static void	reset_ants(t_ant *ants, int antnum)
 {
 	int		i;
 
@@ -85,32 +85,40 @@ void	reset_ants(t_ant *ants, int antnum)
 ** ...
 */
 
-void		lemin_loop(t_lemin *lemin)
+static void	lol_wft_666(t_lemin *lemin)
 {
 	int		i;
-	int		turn_ended;
 
 	while (!game_over(lemin->ants_list, lemin->ants_total))
 	{
-		turn_ended = 0;
-		reset_ants(lemin->ants_list, lemin->ants_total);
-		while (!turn_ended && !game_over(lemin->ants_list, lemin->ants_total))
+		i = 0;
+		while (i < lemin->ants_total)
 		{
-			i = 0;
-			turn_ended = 1;
-			while (i < lemin->ants_total)
+			if (can_move(lemin->ants_list + i))
 			{
-				if (can_move(lemin->ants_list + i))
-				{
-					lemin->ants_list += i;
-					lemin_play(lemin);
-					lemin->ants_list -= i;
-					turn_ended = 0;
-				}
-				i += 1;
+				lemin->ants_list += i;
+				lemin_play(lemin);
+				lemin->ants_list -= i;
+				ft_putchar_fd('\n', FT_STD_OUT);
+				return ;
 			}
-			ft_putchar_fd('\n', FT_STD_OUT);
+			i += 1;
 		}
+		ft_putchar_fd('\n', FT_STD_OUT);
+	}
+	return ;
+}
+
+/*
+** ...
+*/
+
+void		lemin_loop(t_lemin *lemin)
+{
+	while (!game_over(lemin->ants_list, lemin->ants_total))
+	{
+		reset_ants(lemin->ants_list, lemin->ants_total);
+		lol_wft_666(lemin);
 	}
 	lemin_end(lemin);
 	return ;

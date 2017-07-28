@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play_game.c                                        :+:      :+:    :+:   */
+/*   lemin_play.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "lemin.h"
 
-void	move(t_ant *ant, t_room *room)
+/*
+** ...
+*/
+
+static void	move(t_ant *ant, t_room *room)
 {
 	ant->room->has_ant = 0;
 	ant->last = ant->room;
@@ -22,20 +25,25 @@ void	move(t_ant *ant, t_room *room)
 	printf("L%d-%s ", ant->id, ant->room->name);
 }
 
+/*
+** ...
+*/
+
 void		lemin_play(t_lemin *lemin)
 {
-	t_list		*ls;
-	t_room		*tmp;
-	t_room		*next;
-	int			distance;
-	int			result;
+	t_list	*ls;
+	t_room	*tmp;
+	t_room	*next;
+	int		distance;
+	int		result;
 
 	distance = 2147483647;
 	ls = lemin->ants_list->room->paths;
 	while (ls)
 	{
 		tmp = (t_room *)ls->content;
-		if ((tmp->flag == ENDROOM || !tmp->has_ant) && tmp != lemin->ants_list->last)
+		if ((tmp->flag == ENDROOM || !tmp->has_ant) \
+				&& tmp != lemin->ants_list->last)
 		{
 			result = find_room(tmp, ENDROOM);
 			if (result < distance && result > -1)
