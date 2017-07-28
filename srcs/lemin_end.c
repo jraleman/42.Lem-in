@@ -13,12 +13,12 @@
 #include "lemin.h"
 
 /*
-** ...
+** Delete all the rooms.
 */
 
-static void	delete_room(void *data)
+static void	delete_rooms(void *data)
 {
-	t_room		*room;
+	t_room	*room;
 
 	room = (t_room *)data;
 	ft_strdel(&room->name);
@@ -29,12 +29,12 @@ static void	delete_room(void *data)
 }
 
 /*
-** ...
+** Delete all the paths.
 */
 
-static void	delete_path(void *data)
+static void	delete_paths(void *data)
 {
-	t_path		*path;
+	t_path	*path;
 
 	path = (t_path *)data;
 	ft_strdel(&path->door1);
@@ -45,20 +45,22 @@ static void	delete_path(void *data)
 }
 
 /*
-** ...
+** This is the end.
+** Free everything, so we don't have memory leaks. :)
 */
 
-void	lemin_end(t_list *rooms, t_list *paths)
+void		lemin_end(t_lemin *lemin)
 {
-	if (rooms)
+	if (lemin->rooms_list)
 	{
-		ft_lstforeach(rooms, delete_room);
-		ft_lst_rec_free(rooms);
+		ft_lstforeach(lemin->rooms_list, delete_rooms);
+		ft_lst_rec_free(lemin->rooms_list);
 	}
-	if (paths)
+	if (lemin->paths_list)
 	{
-		ft_lstforeach(paths, delete_path);
-		ft_lst_rec_free(paths);
+		ft_lstforeach(lemin->paths_list, delete_paths);
+		ft_lst_rec_free(lemin->paths_list);
 	}
+	free(lemin);
 	return ;
 }

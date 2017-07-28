@@ -13,10 +13,10 @@
 #include "lemin.h"
 
 /*
-** ...
+** Get the total number of ants.
 */
 
-int		get_ants_total(void)
+int			get_ants_total(void)
 {
 	char	*line;
 	int		ant_number;

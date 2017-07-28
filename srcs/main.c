@@ -29,10 +29,9 @@ int			main(void)
 
 	if (lemin_validate(lemin->rooms_list, lemin->paths_list) != TRUE)
 	{
-		lemin_end(lemin->rooms_list, lemin->paths_list);
+		lemin_end(lemin);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
-	game_loop(lemin->ants_list, lemin->ants_total, \
-				lemin->rooms_list, lemin->paths_list);
+	game_loop(lemin, lemin->ants_list, lemin->ants_total);
 	return (0);
 }

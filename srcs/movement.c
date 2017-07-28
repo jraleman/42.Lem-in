@@ -97,10 +97,11 @@ int		game_over(t_ant *ants, int antnum)
 	return (1);
 }
 
-void	game_loop(t_ant *ants, int antnum, t_list *rooms, t_list *paths)
+void	game_loop(t_lemin *lemin, t_ant *ants, int antnum)
 {
-	int		turn_ended;
 	int		i;
+	int		turn_ended;
+
 
 	while (!game_over(ants, antnum))
 	{
@@ -122,5 +123,5 @@ void	game_loop(t_ant *ants, int antnum, t_list *rooms, t_list *paths)
 			write(1, "\n", 1);
 		}
 	}
-	lemin_end(rooms, paths);
+	lemin_end(lemin);
 }

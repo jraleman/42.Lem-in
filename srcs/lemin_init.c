@@ -63,25 +63,28 @@ t_path	*init_path(char *line)
 	return (newpath);
 }
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+
 /*
 ** ...
 */
 
-t_ant	*init_ants(int antnum, t_list *rooms)
+static t_ant	*init_ants(int total_ants, t_list *rooms)
 {
-	t_ant	*ants;
-	int		i;
+	int			i;
+	t_ant		*ants;
 
 	i = 0;
-	ants = malloc(sizeof(t_ant) * antnum);
-	if (!ants)
-		return (NULL);
-	while (i < antnum)
+	if (!(ants = malloc(sizeof(t_ant) * total_ants)))
+		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
+	while (i < total_ants)
 	{
 		ants[i].room = get_room_by_flag(STARTROOM, rooms);
 		ants[i].did_turn = 0;
 		ants[i].id = i + 1;
-		i++;
+		i += 1;
 	}
 	return (ants);
 }
@@ -90,24 +93,24 @@ t_ant	*init_ants(int antnum, t_list *rooms)
 ** ...
 */
 
-t_lemin		*lemin_init(void)
+t_lemin			*lemin_init(void)
 {
-	t_lemin *init;
+	t_lemin 	*init;
 
 	if (!(init = (t_lemin *)malloc(sizeof(t_lemin))))
-			ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
+		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
 	init->rooms_list = NULL;
 	init->paths_list = NULL;
 	if ((init->ants_total = get_ants_total()) == FALSE)
 	{
-		lemin_end(init->rooms_list, init->paths_list);
+		lemin_end(init);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
 	if (lemin_read(&init->rooms_list, &init->paths_list) == ERROR)
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	if (!init->rooms_list || !init->paths_list)
 	{
-		lemin_end(init->rooms_list, init->paths_list);
+		lemin_end(init);
 		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	}
 	init->ants_list = init_ants(init->ants_total, init->rooms_list);
