@@ -139,7 +139,17 @@ void	move(t_ant *ant, t_room *room)
 	printf("L%d-%s ", ant->id, ant->room->name);
 }
 
-int		game_over(t_ant *ants, int antnum)
+
+
+
+
+
+
+
+
+
+
+static int		game_over(t_ant *ants, int antnum)
 {
 	int		i;
 

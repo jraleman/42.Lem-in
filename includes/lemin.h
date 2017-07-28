@@ -88,53 +88,38 @@ typedef struct	s_lemin
 	t_list 		*paths_list;
 }				t_lemin;
 
+/*
+** ...
+*/
 
+int				lemin_read(t_list **rooms, t_list **paths);
+int				lemin_validate(t_list *rooms, t_list *paths);
+void 			lemin_print(t_list *rooms, t_list *paths, int ants);
 void			lemin_end(t_lemin *lemin);
+t_lemin			*lemin_init(void);
 
+/*
+** ...
+*/
 
-////////////////////////////////////////////////////////////////////////////////
+int				get_ants_total(void);
+t_room			*get_room_name(char *name, t_list *list);
+t_room			*get_room_flag(int flag, t_list *list);
 
+/*
+** ...
+*/
 
-
-
-
-
-
-int					lemin_read(t_list **rooms, t_list **paths);
-int					lemin_validate(t_list *rooms, t_list *paths);
-
-void 				lemin_print(t_list *rooms, t_list *paths, int ants);
-
-
-t_ant				*init_ants(int total_ants, t_list *rooms);
-
-
-int					get_ants_total(void);
-
-t_lemin				*lemin_init(void);
-
-//t_ant				*init_ants(int antnum, t_list *rooms);
-t_path				*init_path(char *line);
-t_room				*init_room(char *line, int room_flag);
+t_ant			*init_ants(int total_ants, t_list *rooms);
+t_path			*init_path(char *line);
+t_room			*init_room(char *line, int room_flag);
 
 
 
-
-
-
-//void				destroy_everything(t_list *rooms, t_list *paths, int error);
 void				drill(t_list *rooms, t_list *paths);
 int					find(void *room, int flag);
-void			game_loop(t_lemin *lemin, t_ant *ants, int antnum);
-t_room				*get_room_name(char *name, t_list *list);
-t_room				*get_room_flag(int flag, t_list *list);
-
-
-
-
+void				game_loop(t_lemin *lemin, t_ant *ants, int antnum);
 void				move(t_ant *ant, t_room *room);
-//void				print_room(void *room);
-void				print_room_paths(t_room *room);
 void				reset_ants(t_ant *ants, int antnum);
 
 
