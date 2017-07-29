@@ -27,7 +27,8 @@ static void	print_room(void *room)
 			ft_putendl_fd("##start", FT_STD_OUT);
 		else if (tmp->flag == ENDROOM)
 			ft_putendl_fd("##end", FT_STD_OUT);
-		ft_mini_printf("%s %d %d", tmp->name, 39, tmp->x, 39, tmp->y, 39);
+		ft_mini_printf("%s %d %d", tmp->name, RESET_COLOUR, \
+						tmp->x, RESET_COLOUR, tmp->y, RESET_COLOUR);
 	}
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
@@ -42,7 +43,8 @@ static void	print_path(void *tunnel)
 	t_path	*path;
 
 	path = (t_path *)tunnel;
-	ft_mini_printf("%s-%s\n", path->door1, 39, path->door2, 39);
+	ft_mini_printf("%s-%s\n", path->door1, RESET_COLOUR, \
+					path->door2, RESET_COLOUR);
 	return ;
 }
 
@@ -61,7 +63,8 @@ static void	print_room_colored(void *room)
 			ft_putendl_fd("##start", FT_STD_OUT);
 		else if (tmp->flag == ENDROOM)
 			ft_putendl_fd("##end", FT_STD_OUT);
-		ft_mini_printf("%s %d %d", tmp->name, 91, tmp->x, 93, tmp->y, 93);
+		ft_mini_printf("%s %d %d", tmp->name, 91, \
+						tmp->x, LIGHT_GREEN, tmp->y, LIGHT_GREEN);
 	}
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
@@ -76,7 +79,8 @@ static void	print_path_colored(void *tunnel)
 	t_path	*path;
 
 	path = (t_path *)tunnel;
-	ft_mini_printf("%s-%s\n", path->door1, 36, path->door2, 36);
+	ft_mini_printf("%s-%s\n", path->door1, LIGHT_BLUE, \
+					path->door2, LIGHT_BLUE);
 	return ;
 }
 
@@ -87,9 +91,9 @@ static void	print_path_colored(void *tunnel)
 void		lemin_print(t_lemin *lemin)
 {
 	if (lemin->param.ant_colored == FALSE)
-		ft_mini_printf("%d\n", lemin->ants_total, 39);
+		ft_mini_printf("%d\n", lemin->ants_total, RESET_COLOUR);
 	else
-		ft_mini_printf("%d\n", lemin->ants_total, 93);
+		ft_mini_printf("%d\n", lemin->ants_total, LIGHT_YELLOW);
 	if (lemin->param.path_colored == FALSE)
 		ft_lstforeach(lemin->paths_list, print_path);
 	else

@@ -44,15 +44,18 @@
 ** ...
 */
 
+# define RESET_COLOUR	(0)
+# define LIGHT_BLUE		(36)
 # define LIGHT_RED		(91)
 # define LIGHT_GREEN	(92)
+# define LIGHT_YELLOW	(93)
 
 /*
 ** ...
 */
 
 # define ANT_NUM		(3)
-# define ANT_WIDTH		(11)
+# define ANT_WIDTH		(47)
 # define ANT_HEIGHT		(4)
 # define LOGO_WIDTH		(51)
 # define LOGO_HEIGHT	(7)

@@ -29,7 +29,7 @@ int			find_room(void *room, int targetflag)
 	if (current->busy)
 		return (-1);
 	current->busy = 1;
-	smallestpath = 2147483647;
+	smallestpath = FT_INT_MAX;
 	testing = current->paths;
 	while (testing)
 	{
@@ -39,7 +39,7 @@ int			find_room(void *room, int targetflag)
 		testing = testing->next;
 	}
 	current->busy = 0;
-	if (smallestpath == 2147483647)
+	if (smallestpath == FT_INT_MAX)
 		return (-1);
 	else
 		return (smallestpath);

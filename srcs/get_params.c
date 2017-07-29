@@ -34,16 +34,16 @@ char const	g_logo[LOGO_HEIGHT][LOGO_WIDTH] =
 static void	print_help(char *progname)
 {
 	ft_mini_printf("%s\n", g_logo[0], LIGHT_GREEN);
-	ft_mini_printf("The goal of this project is to find the quickest way" \
-					" to get n ants across the farm.\n");
-	ft_mini_printf("Lemin reads from the standard input." \
+	ft_mini_printf("The goal of this project is to find the quickest way " \
+					"to get n ants across the farm.\n");
+	ft_mini_printf("Lemin reads from the standard input. " \
 					"You may write line by or feed in a file, like this:\n");
 	ft_mini_printf("%s < test.map\n", progname, 91);
 	ft_mini_printf("Your may add the following arguments for: \n");
-	ft_mini_printf("  -a || --ant   : color the ants\n");
-	ft_mini_printf("  -p || --path  : color the paths\n");
-	ft_mini_printf("  -r || --room  : color the rooms\n");
-	ft_mini_printf("  -d || --debug : for debugging purposes\n");
+	ft_mini_printf("    -a || --ant   : color the ants\n");
+	ft_mini_printf("    -p || --path  : color the paths\n");
+	ft_mini_printf("    -r || --room  : color the rooms\n");
+	ft_mini_printf("    -d || --debug : for debugging purposes\n");
 	exit(0);
 	return ;
 }

@@ -19,22 +19,22 @@
 char const	g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH] =
 {
 	{
-		{"    \\_/   "},
-		{"   '-0-'   "},
-		{"   --0--   "},
-		{"   .-0-.   "},
+		{"    \\_/   \n"},
+		{"   '-0-'   \n"},
+		{"   --0--   \n"},
+		{"   .-0-.   \n"},
 	},
 	{
-		{"      \\_/ "},
-		{"    '-0-'  "},
-		{"   --0--   "},
-		{"   .-0-.   "},
+		{"      \\_/ \n"},
+		{"    '-0-'  \n"},
+		{"   --0--   \n"},
+		{"   .-0-.   \n"},
 	},
 	{
-		{"  \\_/     "},
-		{"  '-0-'    "},
-		{"   --0--   "},
-		{"   .-0-.   "},
+		{"  \\_/     \n"},
+		{"  '-0-'    \n"},
+		{"   --0--   \n"},
+		{"   .-0-.   \n"},
 	}
 };
 
@@ -42,19 +42,53 @@ char const	g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH] =
 ** ...
 */
 
-//static void	print_ant()
+static void	print_debug(t_lemin *lemin, t_ant *ant, t_room *room)
+{
+	int		i;
+
+	i = 0;
+	usleep(420000);
+	ft_mini_printf("\n\n");
+	while (i < ANT_HEIGHT)
+	{
+		ft_mini_printf("%s", g_ant[lemin->param.debug % 3][i], LIGHT_YELLOW);
+		i += 1;
+	}
+	ft_mini_printf("\n");
+	ft_mini_printf("Ant  id   : %d\n", ant->id, LIGHT_YELLOW);
+	ft_mini_printf("Room name : %d\n", room->flag, LIGHT_RED);
+	ft_mini_printf("Room flag : %d\n", room->flag, LIGHT_RED);
+	ft_mini_printf("L%d-%s \n", ant->id, LIGHT_YELLOW, \
+					ant->room->name, LIGHT_RED);
+	lemin->param.debug += 1;
+	return ;
+}
 
 /*
 ** ...
 */
 
-static void	move_ants(t_ant *ant, t_room *room)
+static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
+{
+	if (lemin->param.debug == FALSE)
+		ft_mini_printf("L%d-%s ", ant->id, 0, ant->room->name, 0);
+	else
+		print_debug(lemin, lemin->ants_list, room);
+	return ;
+}
+
+/*
+** ...
+*/
+
+static void	move_ants(t_lemin *lemin, t_ant *ant, t_room *room)
 {
 	ant->room->has_ant = 0;
 	ant->last = ant->room;
 	ant->room = room;
 	ant->room->has_ant = 1;
-	ft_mini_printf("L%d-%s ", ant->id, 39, ant->room->name, 39);
+	print_ant(lemin, ant, room);
+	return ;
 }
 
 /*
@@ -63,18 +97,13 @@ static void	move_ants(t_ant *ant, t_room *room)
 
 void		lemin_play(t_lemin *lemin)
 {
+	int		result;
+	int		distance;
 	t_list	*ls;
 	t_room	*tmp;
 	t_room	*next;
-	int		distance;
-	int		result;
 
-	int		i;
-
-	i = 0;
-
-	// INT_MAX (START FROM THE BIGGEST NUMBER)
-	distance = 2147483647;
+	distance = FT_INT_MAX;
 	ls = lemin->ants_list->room->paths;
 	while (ls)
 	{
@@ -90,24 +119,7 @@ void		lemin_play(t_lemin *lemin)
 			}
 		}
 		ls = ls->next;
-
-
-			//printf("L%d-%s\n", lemin->ants_list->id, next->name);
-			i += 1;
 	}
-	if (distance < 2147483647)
-		move_ants(lemin->ants_list, next);
-
-
-/*
-	sleep(1);
-	int 	i;
-	i = 0;
-	while (i < ANT_HEIGHT)
-	{
-		ft_mini_printf("%s", g_ant[lemin->param.debug % 3][i++]);
-	}
-	lemin->param.debug += 1;
-*/
-
+	if (distance < FT_INT_MAX)
+		move_ants(lemin, lemin->ants_list, next);
 }
