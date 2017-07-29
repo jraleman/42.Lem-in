@@ -80,6 +80,18 @@ typedef struct	s_ant
 ** ...
 */
 
+typedef struct   s_param
+{
+	int debug;
+	int path;
+	int room;
+	int ant;
+}                t_param;
+
+/*
+** ...
+*/
+
 typedef struct	s_lemin
 {
 	int			ants_total;

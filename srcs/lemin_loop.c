@@ -52,14 +52,14 @@ static int	game_over(t_ant *ants, int antnum)
 {
 	int		i;
 
-	if (!ants)
-		return (1);
+	//if (!ants)
+		//return (1);
 	i = 0;
-	while (i < antnum)
+	while (i < antnum && ants != 0)
 	{
 		if (ants[i].room->flag != ENDROOM)
 			return (0);
-		i++;
+		i += 1;
 	}
 	return (1);
 }
@@ -76,7 +76,7 @@ static void	reset_ants(t_ant *ants, int antnum)
 	while (i < antnum)
 	{
 		ants[i].did_turn = 0;
-		i++;
+		i += 1;
 	}
 	return ;
 }

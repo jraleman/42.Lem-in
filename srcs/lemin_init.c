@@ -16,7 +16,7 @@
 ** Initialize the lemin structure.
 */
 
-t_lemin		*lemin_init(void)
+t_lemin		*lemin_init(int total_params, char *params[])
 {
 	t_lemin	*init;
 
@@ -24,6 +24,7 @@ t_lemin		*lemin_init(void)
 		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
 	init->rooms_list = NULL;
 	init->paths_list = NULL;
+  get_params(total_params, params, init);
 	if ((init->ants_total = get_ants_total()) == FALSE)
 	{
 		lemin_end(init);
