@@ -14,7 +14,6 @@
 # define LEMIN_H
 
 # include "libft.h"
-# include <stdio.h>
 
 /*
 ** ...
@@ -59,6 +58,12 @@
 # define ANT_HEIGHT		(4)
 # define LOGO_WIDTH		(51)
 # define LOGO_HEIGHT	(7)
+
+/*
+** ...
+*/
+
+# define DEBUG_SLEEP	(420000)
 
 /*
 ** Global variables

@@ -47,7 +47,7 @@ static void	print_debug(t_lemin *lemin, t_ant *ant, t_room *room)
 	int		i;
 
 	i = 0;
-	usleep(420000);
+	usleep(DEBUG_SLEEP);
 	ft_mini_printf("\n\n");
 	while (i < ANT_HEIGHT)
 	{
