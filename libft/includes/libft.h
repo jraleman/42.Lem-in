@@ -51,6 +51,14 @@
 # define FT_WHITE			(7)
 
 /*
+** ...
+*/
+
+# define FT_STD_INT	(0)
+# define FT_STD_OUT	(1)
+# define FT_STD_ERR	(2)
+
+/*
 ** Macros for the limits of the variables.
 */
 
@@ -197,5 +205,9 @@ char		*ft_strnew(size_t size);
 char		*ft_strcpy(char *dst, const char *src);
 char		*ft_strcat(char *s1, const char *s2);
 char		*ft_strjoin(char const *s1, char const *s2);
+
+int			ft_putnbr_fd(int n, int fd);
+void		ft_mini_printf(const char *format, ...);
+char		*ft_itoa(int n);
 
 #endif

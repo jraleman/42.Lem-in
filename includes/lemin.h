@@ -20,25 +20,50 @@
 ** ...
 */
 
-# define STARTROOM 	(1)
-# define NORMAL 	(2)
-# define ENDROOM	(3)
+# define STARTROOM 		(1)
+# define NORMAL 		(2)
+# define ENDROOM		(3)
 
 /*
 ** ...
 */
 
-# define ERROR		(-1)
-# define PARAM_ERR	(-2)
-# define MALLC_ERR	(-3)
+# define ERROR			(-1)
+# define PARAM_ERR		(-2)
+# define MALLC_ERR		(-3)
 
 /*
 ** ...
 */
 
-# define FT_STD_INT	(0)
-# define FT_STD_OUT	(1)
-# define FT_STD_ERR	(2)
+# define FT_STD_INT		(0)
+# define FT_STD_OUT		(1)
+# define FT_STD_ERR		(2)
+
+/*
+** ...
+*/
+
+# define LIGHT_RED		(91)
+# define LIGHT_GREEN	(92)
+
+/*
+** ...
+*/
+
+# define LOGO_WIDTH		(51)
+# define LOGO_HEIGHT	(7)
+
+/*
+** Global variables
+*/
+
+# ifndef GLOBAL_VAR
+#  define GLOBAL_VAR
+
+extern int		g_logo[LOGO_HEIGHT][LOGO_WIDTH];
+
+# endif
 
 /*
 ** ...

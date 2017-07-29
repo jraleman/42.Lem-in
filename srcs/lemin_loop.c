@@ -59,8 +59,8 @@ static int	game_over(t_ant *ants, int antnum)
 	{
 		if (ants[i].room->flag != ENDROOM)
 		{
-				ret = 0;
-				break ;
+			ret = 0;
+			break ;
 		}
 		i += 1;
 	}

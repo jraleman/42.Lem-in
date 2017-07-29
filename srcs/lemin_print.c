@@ -30,7 +30,7 @@ static void	print_room(void *room)
 		printf("##start\n");
 	else if (tmp->flag == ENDROOM)
 		printf("##end\n");
-	printf("%s %d %d\n", tmp->name, tmp->x, tmp->y);
+	ft_mini_printf("%s %d %d\n", tmp->name, 91, tmp->x, 91, tmp->y, 91);
 	return ;
 }
 
@@ -43,7 +43,7 @@ static void	print_path(void *tunnel)
 	t_path	*path;
 
 	path = (t_path *)tunnel;
-	printf("%s-%s\n", path->door1, path->door2);
+	ft_mini_printf("%s-%s\n", path->door1, 36, path->door2, 36);
 	return ;
 }
 
@@ -53,7 +53,7 @@ static void	print_path(void *tunnel)
 
 void		lemin_print(t_lemin *lemin)
 {
-	printf("%d\n", lemin->ants_total);
+	ft_mini_printf("%d\n", lemin->ants_total);
 	ft_lstforeach(lemin->rooms_list, print_room);
 	ft_lstforeach(lemin->paths_list, print_path);
 	ft_putchar_fd('\n', FT_STD_OUT);

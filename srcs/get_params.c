@@ -13,20 +13,19 @@
 #include "lemin.h"
 
 /*
-** Prints the lemin logo.
+** Lemin logo.
 */
 
-static void	print_logo(void)
+char g_logo[LOGO_HEIGHT][LOGO_WIDTH] =
 {
-	printf("    _     U _____ u  __  __              _   _    \n");
-	printf("   |.|    \\| ___.|/U|. \\/ .|u   ___     | \\ |.|   \n");
-	printf(" U | | u   |  __|  \\| |\\/| |/  |_._|   <|  \\| |>  \n");
-	printf("  \\| |/__  | |___   | |  | |    | |    U| |\\  |u  \n");
-	printf("   |_____| |_____|  |_|  |_|  U/| |\\u   |_| \\_|   \n");
-	printf("   //  \\\\  <<   >> <<,-,,-..-,_|___|_,-.||   \\\\,-.\n");
-	printf("  (_^)(^_)(__) (__) (./  \\.)\\_)-' '-(_/ (_^)  (_/ \n\n");
-	return ;
-}
+	{"    _     U _____ u  __  __              _   _    \n"},
+	{"   |.|    \\| ___.|/U|. \\/ .|u   ___     | \\ |.|   \n"},
+	{" U | | u   |  __|  \\| |\\/| |/  |_._|   <|  \\| |>  \n"},
+	{"  \\| |/__  | |___   | |  | |    | |    U| |\\  |u  \n"},
+	{"   |_____| |_____|  |_|  |_|  U/| |\\u   |_| \\_|   \n"},
+	{"   //  \\\\  <<   >> <<,-,,-..-,_|___|_,-.||   \\\\,-.\n"},
+	{"  (_^)(^_)(__) (__) (./  \\.)\\_)-' '-(_/ (_^)  (_/ \n"}
+};
 
 /*
 ** Prints the help message.
@@ -34,12 +33,17 @@ static void	print_logo(void)
 
 static void	print_help(char *progname)
 {
-	print_logo();
-	printf("The goal of this project is to find the quickest way to get n ");
-	printf("ants across the farm.\n");
-	printf("Lemin reads from the standard input. You may write line by ");
-	printf("or feed in a file, like this:\n");
-	printf("%s < test.map\n", progname);
+	ft_mini_printf("%s", g_logo[0], LIGHT_GREEN);
+	ft_mini_printf("The goal of this project is to find the quickest way" \
+					" to get n ants across the farm.\n");
+	ft_mini_printf("Lemin reads from the standard input." \
+					"You may write line by or feed in a file, like this:\n");
+	ft_mini_printf("%s < test.map\n", progname, 91);
+	ft_mini_printf("Your may add the following arguments for: \n");
+	ft_mini_printf("-a || --ant   : color the ants");
+	ft_mini_printf("-p || --path  : color the paths");
+	ft_mini_printf("-r || --room  : color the rooms");
+	ft_mini_printf("-d || --debug : for debugging purposes");
 	exit(0);
 	return ;
 }
@@ -50,8 +54,9 @@ static void	print_help(char *progname)
 
 static void	invalid_param(char *arg, char *progname)
 {
-	printf("Argument %s is invalid!\n", arg);
-	printf("Run %s -h or --help to know how to run this shit. :)\n", progname);
+	ft_mini_printf("Argument %s is invalid!\n", arg);
+	ft_mini_printf("Run %s -h or --help to know how " \
+					"to run this shit. :)\n", progname);
 	exit(PARAM_ERR);
 	return ;
 }
