@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** Start going from room to room.
 */
 
 void		lemin_start(t_lemin *lemin)

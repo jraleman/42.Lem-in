@@ -53,9 +53,7 @@ static int	read_room(char *line)
 		line += 1;
 	while (*line && ft_isdigit(*line))
 		line += 1;
-	if (*line != '\0')
-		return (0);
-	return (1);
+	return (*line != '\0' ? 0 : 1)
 }
 
 /*
@@ -64,8 +62,10 @@ static int	read_room(char *line)
 
 static int	read_path(char *line, t_list *rooms)
 {
+	int		ret;
 	t_path	tmp;
 
+	ret = 0;
 	if (ft_strchr(line, '-'))
 	{
 		tmp.door1 = ft_strsub(line, 0, ft_strlchr(line, '-'));
@@ -75,17 +75,15 @@ static int	read_path(char *line, t_list *rooms)
 		{
 			free(tmp.door1);
 			free(tmp.door2);
-			return (1);
+			ret = 1;
 		}
 		else
 		{
 			free(tmp.door1);
 			free(tmp.door2);
-			return (0);
 		}
 	}
-	else
-		return (0);
+	return (ret);
 }
 
 /*
