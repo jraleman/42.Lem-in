@@ -21,8 +21,6 @@ t_room		*get_room_name(char *name, t_list *list)
 	int		done;
 	t_room	*tmp;
 
-	if (!list)
-		return (NULL);
 	done = 0;
 	while (list && !done)
 	{

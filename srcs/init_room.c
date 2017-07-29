@@ -14,11 +14,6 @@
 
 /*
 ** Initialize the room.
-** ...
-** ...
-** ...
-** Maybe compare with whitespaces ('\n' && ' '), check the pdf to see if
-** it's allowed.
 */
 
 t_room		*init_room(char *line, int room_flag)
