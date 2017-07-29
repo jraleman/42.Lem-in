@@ -63,7 +63,7 @@ static void	print_room_colored(void *room)
 			ft_putendl_fd("##start", FT_STD_OUT);
 		else if (tmp->flag == ENDROOM)
 			ft_putendl_fd("##end", FT_STD_OUT);
-		ft_mini_printf("%s %d %d", tmp->name, 91, \
+		ft_mini_printf("%s %d %d", tmp->name, LIGHT_RED, \
 						tmp->x, LIGHT_GREEN, tmp->y, LIGHT_GREEN);
 	}
 	ft_putchar_fd('\n', FT_STD_OUT);
@@ -94,14 +94,14 @@ void		lemin_print(t_lemin *lemin)
 		ft_mini_printf("%d\n", lemin->ants_total, RESET_COLOUR);
 	else
 		ft_mini_printf("%d\n", lemin->ants_total, LIGHT_YELLOW);
-	if (lemin->param.path_colored == FALSE)
-		ft_lstforeach(lemin->paths_list, print_path);
-	else
-		ft_lstforeach(lemin->paths_list, print_path_colored);
 	if (lemin->param.room_colored == FALSE)
 		ft_lstforeach(lemin->rooms_list, print_room);
 	else
 		ft_lstforeach(lemin->rooms_list, print_room_colored);
+	if (lemin->param.path_colored == FALSE)
+		ft_lstforeach(lemin->paths_list, print_path);
+	else
+		ft_lstforeach(lemin->paths_list, print_path_colored);
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
