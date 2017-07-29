@@ -12,6 +12,10 @@
 
 #include "lemin.h"
 
+/*
+** Prints the lemin logo.
+*/
+
 static void	print_logo(void)
 {
 	printf("    _     U _____ u  __  __              _   _    \n");
@@ -25,7 +29,7 @@ static void	print_logo(void)
 }
 
 /*
-** ...
+** Prints the help message.
 */
 
 static void	print_help(char *progname)
@@ -41,12 +45,12 @@ static void	print_help(char *progname)
 }
 
 /*
-** ...
+** Prints the invalid argument, and exits the program.
 */
 
-static void	invalid_param(char *param, char *progname)
+static void	invalid_param(char *arg, char *progname)
 {
-	printf("Argument %s is invalid!\n", param);
+	printf("Argument %s is invalid!\n", arg);
 	printf("Run %s -h or --help to know how to run this shit. :)\n", progname);
 	exit(PARAM_ERR);
 	return ;
@@ -59,7 +63,7 @@ static void	invalid_param(char *param, char *progname)
 
 void		get_params(int argc, char *argv[], t_lemin *init)
 {
-	int	i;
+	int		i;
 
 	i = 1;
 	while (--argc)
