@@ -88,13 +88,14 @@ static void	reset_ants(t_ant *ants, int antnum)
 ** ...
 */
 
-static void	move_ants(t_lemin *lemin)
+static void	move_ants(t_lemin *lemin, int turn)
 {
 	int		i;
 
-	while (!game_over(lemin->ants_list, lemin->ants_total))
+	while (!turn && !game_over(lemin->ants_list, lemin->ants_total))
 	{
 		i = 0;
+		turn = 1;
 		while (i < lemin->ants_total)
 		{
 			if (can_move(lemin->ants_list + i))
@@ -102,7 +103,8 @@ static void	move_ants(t_lemin *lemin)
 				lemin->ants_list += i;
 				lemin_play(lemin);
 				lemin->ants_list -= i;
-				break ;
+				turn = 0;
+				//break ;
 			}
 			i += 1;
 		}
@@ -117,10 +119,13 @@ static void	move_ants(t_lemin *lemin)
 
 void		lemin_loop(t_lemin *lemin)
 {
+	int    turn;
+
+	turn = 0;
 	while (!game_over(lemin->ants_list, lemin->ants_total))
 	{
 		reset_ants(lemin->ants_list, lemin->ants_total);
-		move_ants(lemin);
+		move_ants(lemin, turn);
 	}
 	lemin_end(lemin);
 	return ;

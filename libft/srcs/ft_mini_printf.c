@@ -18,12 +18,12 @@
 
 void		set_color(int c)
 {
-	if (c != 0)
-	{
-		ft_putstr_fd("\033[", FT_STD_OUT);
+	//if (c != 0)
+	//{
+		ft_putstr_fd("\x1B[", FT_STD_OUT);
 		ft_putnbr_fd(c, FT_STD_OUT);
 		ft_putchar_fd('m', FT_STD_OUT);
-	}
+	//}
 	return ;
 }
 
@@ -35,7 +35,7 @@ void		putcstr(char const *s, size_t col)
 {
 	set_color(col);
 	ft_putstr_fd(s, FT_STD_OUT);
-	set_color(39);
+	set_color(0);
 	return ;
 }
 

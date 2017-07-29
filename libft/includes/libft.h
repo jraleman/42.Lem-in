@@ -24,6 +24,8 @@
 # include <unistd.h>
 # include <sys/types.h>
 
+#include <stdarg.h>
+
 /*
 ** Attributes for printed text.
 */
