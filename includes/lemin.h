@@ -73,7 +73,7 @@
 #  define GLOBAL_VAR
 
 extern char const		g_logo[LOGO_HEIGHT][LOGO_WIDTH];
-extern char const		g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH]
+extern char const		g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH];
 
 # endif
 
