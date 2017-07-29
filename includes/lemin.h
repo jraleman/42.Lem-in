@@ -61,7 +61,7 @@
 # ifndef GLOBAL_VAR
 #  define GLOBAL_VAR
 
-extern int		g_logo[LOGO_HEIGHT][LOGO_WIDTH];
+extern int				g_logo[LOGO_HEIGHT][LOGO_WIDTH];
 
 # endif
 
@@ -69,98 +69,98 @@ extern int		g_logo[LOGO_HEIGHT][LOGO_WIDTH];
 ** ...
 */
 
-typedef struct	s_path
+typedef struct			s_path
 {
-	char		*door1;
-	char		*door2;
-}				t_path;
+	char				*door1;
+	char				*door2;
+}						t_path;
 
 /*
 ** ...
 */
 
-typedef struct	s_room
+typedef struct			s_room
 {
-	char		*name;
-	int			x;
-	int			y;
-	int			flag;
-	int			busy;
-	int			has_ant;
-	t_list		*paths;
-}				t_room;
+	char				*name;
+	int					x;
+	int					y;
+	int					flag;
+	int					busy;
+	int					has_ant;
+	t_list				*paths;
+}						t_room;
 
 /*
 ** ...
 */
 
-typedef struct	s_ant
+typedef struct			s_ant
 {
-	int			id;
-	t_room		*room;
-	t_room		*last;
-	int			did_turn;
-}				t_ant;
+	int					id;
+	t_room				*room;
+	t_room				*last;
+	int					did_turn;
+}						t_ant;
 
 /*
 ** ...
 */
 
-typedef struct	s_param
+typedef struct			s_param
 {
-	int			debug;
-	int			path;
-	int			room;
-	int			ant;
-}				t_param;
+	int					debug;
+	int					path;
+	int					room;
+	int					ant;
+}						t_param;
 
 /*
 ** ...
 */
 
-typedef struct	s_lemin
+typedef struct			s_lemin
 {
-	int			ants_total;
-	t_ant		*ants_list;
-	t_list		*rooms_list;
-	t_list		*paths_list;
-	t_param		param;
-}				t_lemin;
+	int					ants_total;
+	t_ant				*ants_list;
+	t_list				*rooms_list;
+	t_list				*paths_list;
+	t_param				param;
+}						t_lemin;
 
 /*
 ** ...
 */
 
-int				lemin_read(t_lemin *lemin);
-int				lemin_validate(t_lemin *lemin);
-void			lemin_end(t_lemin *lemin);
-void			lemin_loop(t_lemin *lemin);
-void			lemin_play(t_lemin *lemin);
-void			lemin_start(t_lemin *lemin);
-void			lemin_print(t_lemin *lemin);
-t_lemin			*lemin_init(int total_params, char *params[]);
+int						lemin_read(t_lemin *lemin);
+int						lemin_validate(t_lemin *lemin);
+void					lemin_end(t_lemin *lemin);
+void					lemin_loop(t_lemin *lemin);
+void					lemin_play(t_lemin *lemin);
+void					lemin_start(t_lemin *lemin);
+void					lemin_print(t_lemin *lemin);
+t_lemin					*lemin_init(int total_params, char *params[]);
 
 /*
 ** ...
 */
 
-int				find_room(void *room, int flag);
+int						find_room(void *room, int flag);
 
 /*
 ** ...
 */
 
-int				get_ants_total(void);
-void			get_params(int argc, char *argv[], t_lemin *init);
-t_room			*get_room_name(char *name, t_list *list);
-t_room			*get_room_flag(int flag, t_list *list);
+int						get_ants_total(void);
+void					get_params(int argc, char *argv[], t_lemin *init);
+t_room					*get_room_name(char *name, t_list *list);
+t_room					*get_room_flag(int flag, t_list *list);
 
 /*
 ** ...
 */
 
-t_ant			*init_ants(int total_ants, t_list *rooms);
-t_path			*init_path(char *line);
-t_room			*init_room(char *line, int room_flag);
+t_ant					*init_ants(int total_ants, t_list *rooms);
+t_path					*init_path(char *line);
+t_room					*init_room(char *line, int room_flag);
 
 #endif
