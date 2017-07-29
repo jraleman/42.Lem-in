@@ -51,21 +51,24 @@ static int	can_move(t_ant *ant)
 static int	game_over(t_ant *ants, int antnum)
 {
 	int		i;
+	int		ret;
 
-	//if (!ants)
-		//return (1);
 	i = 0;
+	ret = 1;
 	while (i < antnum && ants != 0)
 	{
 		if (ants[i].room->flag != ENDROOM)
-			return (0);
+		{
+				ret = 0;
+				break ;
+		}
 		i += 1;
 	}
-	return (1);
+	return (ret);
 }
 
 /*
-** ...
+** Reset the ants status (if they have turned).
 */
 
 static void	reset_ants(t_ant *ants, int antnum)
@@ -85,7 +88,7 @@ static void	reset_ants(t_ant *ants, int antnum)
 ** ...
 */
 
-static void	lol_wft_666(t_lemin *lemin)
+static void	move_ants(t_lemin *lemin)
 {
 	int		i;
 
@@ -118,7 +121,7 @@ void		lemin_loop(t_lemin *lemin)
 	while (!game_over(lemin->ants_list, lemin->ants_total))
 	{
 		reset_ants(lemin->ants_list, lemin->ants_total);
-		lol_wft_666(lemin);
+		move_ants(lemin);
 	}
 	lemin_end(lemin);
 	return ;

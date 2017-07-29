@@ -53,7 +53,7 @@ static int	read_room(char *line)
 		line += 1;
 	while (*line && ft_isdigit(*line))
 		line += 1;
-	return (*line != '\0' ? 0 : 1)
+	return (*line != '\0' ? 0 : 1);
 }
 
 /*
