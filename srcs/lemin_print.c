@@ -16,21 +16,20 @@
 ** Print the rooms.
 */
 
-static void	print_room(t_lemin room)
+static void	print_room(void *room)
 {
-	t_room 	*tmp;
+	t_room	*tmp;
 
-	if (room.rooms_list == NULL)
+	if (room == NULL)
 	{
 		ft_putchar_fd('\n', FT_STD_OUT);
 		return ;
 	}
-	tmp = (t_room *)room.rooms_list;
+	tmp = (t_room *)room;
 	if (tmp->flag == STARTROOM)
 		printf("##start\n");
 	else if (tmp->flag == ENDROOM)
 		printf("##end\n");
-	//if ()
 	ft_mini_printf("%s %d %d\n", tmp->name, 91, tmp->x, 91, tmp->y, 91);
 	return ;
 }
@@ -39,11 +38,46 @@ static void	print_room(t_lemin room)
 ** Print the paths.
 */
 
-static void	print_path(t_lemin tunnel)
+static void	print_path(void *tunnel)
 {
-	t_path 	*path;
+	t_path	*path;
 
-	path = (t_path *)tunnel.rooms_list;
+	path = (t_path *)tunnel;
+	ft_mini_printf("%s-%s\n", path->door1, 36, path->door2, 36);
+	return ;
+}
+
+/*
+** Print the paths.
+*/
+
+static void	print_room_colored(void *room)
+{
+	t_room	*tmp;
+
+	if (room == NULL)
+	{
+		ft_putchar_fd('\n', FT_STD_OUT);
+		return ;
+	}
+	tmp = (t_room *)room;
+	if (tmp->flag == STARTROOM)
+		printf("##start\n");
+	else if (tmp->flag == ENDROOM)
+		printf("##end\n");
+	ft_mini_printf("%s %d %d\n", tmp->name, 91, tmp->x, 91, tmp->y, 91);
+	return ;
+}
+
+/*
+** Print the rooms.
+*/
+
+static void	print_path_colored(void *tunnel)
+{
+	t_path	*path;
+
+	path = (t_path *)tunnel;
 	ft_mini_printf("%s-%s\n", path->door1, 36, path->door2, 36);
 	return ;
 }
@@ -54,12 +88,18 @@ static void	print_path(t_lemin tunnel)
 
 void		lemin_print(t_lemin *lemin)
 {
-	ft_mini_printf("%d\n", lemin->ants_total);
-	ft_lstforeach(lemin->rooms_list, print_room);
-	ft_lstforeach(lemin->paths_list, print_path);
+	if (lemin->param.ant_colored == FALSE)
+		ft_mini_printf("%d\n", lemin->ants_total);
+	else
+		ft_mini_printf("%d\n", lemin->ants_total);
+	if (lemin->param.path_colored)
+		ft_lstforeach(lemin->paths_list, print_path);
+	else
+		ft_lstforeach(lemin->paths_list, print_path_colored);
+	if (lemin->param.room_colored)
+		ft_lstforeach(lemin->rooms_list, print_room);
+	else
+		ft_lstforeach(lemin->rooms_list, print_room_colored);
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
-
-//ft_lstforeach(lemin, print_room);
-//path = (t_path *)tunnel->paths_list;

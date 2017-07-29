@@ -76,11 +76,11 @@ void		get_params(int argc, char *argv[], t_lemin *init)
 		if (ft_strequ(argv[i], "-h") || ft_strequ(argv[i], "--help"))
 			print_help(argv[0]);
 		else if (ft_strequ(argv[i], "-a") || ft_strequ(argv[i], "--ant"))
-			init->param.ant = TRUE;
+			init->param.ant_colored = TRUE;
 		else if (ft_strequ(argv[i], "-p") || ft_strequ(argv[i], "--path"))
-			init->param.path = TRUE;
+			init->param.path_colored = TRUE;
 		else if (ft_strequ(argv[i], "-r") || ft_strequ(argv[i], "--room"))
-			init->param.room = TRUE;
+			init->param.room_colored = TRUE;
 		else if (ft_strequ(argv[i], "-d") || ft_strequ(argv[i], "--debug"))
 			init->param.debug = TRUE;
 		else

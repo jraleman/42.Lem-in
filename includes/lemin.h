@@ -109,9 +109,9 @@ typedef struct			s_ant
 typedef struct			s_param
 {
 	int					debug;
-	int					path;
-	int					room;
-	int					ant;
+	int					ant_colored;
+	int					path_colored;
+	int					room_colored;
 }						t_param;
 
 /*
