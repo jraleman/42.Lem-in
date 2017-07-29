@@ -51,6 +51,9 @@
 ** ...
 */
 
+# define ANT_NUM		(3)
+# define ANT_WIDTH		(11)
+# define ANT_HEIGHT		(4)
 # define LOGO_WIDTH		(51)
 # define LOGO_HEIGHT	(7)
 
@@ -61,7 +64,8 @@
 # ifndef GLOBAL_VAR
 #  define GLOBAL_VAR
 
-extern int				g_logo[LOGO_HEIGHT][LOGO_WIDTH];
+extern char const		g_logo[LOGO_HEIGHT][LOGO_WIDTH];
+extern char const		g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH]
 
 # endif
 

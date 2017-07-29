@@ -20,17 +20,16 @@ static void	print_room(void *room)
 {
 	t_room	*tmp;
 
-	if (room == NULL)
+	if (room != NULL)
 	{
-		ft_putchar_fd('\n', FT_STD_OUT);
-		return ;
+		tmp = (t_room *)room;
+		if (tmp->flag == STARTROOM)
+			ft_putendl_fd("##start", FT_STD_OUT);
+		else if (tmp->flag == ENDROOM)
+			ft_putendl_fd("##end", FT_STD_OUT);
+		ft_mini_printf("%s %d %d", tmp->name, 39, tmp->x, 39, tmp->y, 39);
 	}
-	tmp = (t_room *)room;
-	if (tmp->flag == STARTROOM)
-		printf("##start\n");
-	else if (tmp->flag == ENDROOM)
-		printf("##end\n");
-	ft_mini_printf("%s %d %d\n", tmp->name, 91, tmp->x, 91, tmp->y, 91);
+	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
 
@@ -43,7 +42,7 @@ static void	print_path(void *tunnel)
 	t_path	*path;
 
 	path = (t_path *)tunnel;
-	ft_mini_printf("%s-%s\n", path->door1, 36, path->door2, 36);
+	ft_mini_printf("%s-%s\n", path->door1, 39, path->door2, 39);
 	return ;
 }
 
@@ -55,17 +54,16 @@ static void	print_room_colored(void *room)
 {
 	t_room	*tmp;
 
-	if (room == NULL)
+	if (room != NULL)
 	{
-		ft_putchar_fd('\n', FT_STD_OUT);
-		return ;
+		tmp = (t_room *)room;
+		if (tmp->flag == STARTROOM)
+			ft_putendl_fd("##start", FT_STD_OUT);
+		else if (tmp->flag == ENDROOM)
+			ft_putendl_fd("##end", FT_STD_OUT);
+		ft_mini_printf("%s %d %d", tmp->name, 91, tmp->x, 93, tmp->y, 93);
 	}
-	tmp = (t_room *)room;
-	if (tmp->flag == STARTROOM)
-		printf("##start\n");
-	else if (tmp->flag == ENDROOM)
-		printf("##end\n");
-	ft_mini_printf("%s %d %d\n", tmp->name, 91, tmp->x, 91, tmp->y, 91);
+	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
 
@@ -89,14 +87,14 @@ static void	print_path_colored(void *tunnel)
 void		lemin_print(t_lemin *lemin)
 {
 	if (lemin->param.ant_colored == FALSE)
-		ft_mini_printf("%d\n", lemin->ants_total);
+		ft_mini_printf("%d\n", lemin->ants_total, 39);
 	else
-		ft_mini_printf("%d\n", lemin->ants_total);
-	if (lemin->param.path_colored)
+		ft_mini_printf("%d\n", lemin->ants_total, 93);
+	if (lemin->param.path_colored == FALSE)
 		ft_lstforeach(lemin->paths_list, print_path);
 	else
 		ft_lstforeach(lemin->paths_list, print_path_colored);
-	if (lemin->param.room_colored)
+	if (lemin->param.room_colored == FALSE)
 		ft_lstforeach(lemin->rooms_list, print_room);
 	else
 		ft_lstforeach(lemin->rooms_list, print_room_colored);

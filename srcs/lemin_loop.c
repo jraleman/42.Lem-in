@@ -102,12 +102,12 @@ static void	move_ants(t_lemin *lemin)
 				lemin->ants_list += i;
 				lemin_play(lemin);
 				lemin->ants_list -= i;
-				ft_putchar_fd('\n', FT_STD_OUT);
+				//ft_putchar_fd('\n', FT_STD_OUT);
 				return ;
 			}
 			i += 1;
 		}
-		ft_putchar_fd('\n', FT_STD_OUT);
+		//ft_putchar_fd('\n', FT_STD_OUT);
 	}
 	return ;
 }
@@ -123,6 +123,7 @@ void		lemin_loop(t_lemin *lemin)
 		reset_ants(lemin->ants_list, lemin->ants_total);
 		move_ants(lemin);
 	}
+	ft_putchar_fd('\n', FT_STD_OUT);
 	lemin_end(lemin);
 	return ;
 }

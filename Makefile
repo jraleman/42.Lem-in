@@ -14,7 +14,8 @@
 NAME       = lem-in
 
 # Compiling flags
-FLAGS      = -Wall -Wextra -Werror -g -Ofast
+#FLAGS      = -Wall -Wextra -Werror -g -Ofast
+FLAGS      = -g -Ofast
 
 # Folders
 SRC_DIR    = ./srcs/

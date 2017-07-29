@@ -16,7 +16,7 @@
 ** Lemin logo.
 */
 
-char g_logo[LOGO_HEIGHT][LOGO_WIDTH] =
+char const	g_logo[LOGO_HEIGHT][LOGO_WIDTH] =
 {
 	{"    _     U _____ u  __  __              _   _    \n"},
 	{"   |.|    \\| ___.|/U|. \\/ .|u   ___     | \\ |.|   \n"},
@@ -40,10 +40,10 @@ static void	print_help(char *progname)
 					"You may write line by or feed in a file, like this:\n");
 	ft_mini_printf("%s < test.map\n", progname, 91);
 	ft_mini_printf("Your may add the following arguments for: \n");
-	ft_mini_printf("-a || --ant   : color the ants\n");
-	ft_mini_printf("-p || --path  : color the paths\n");
-	ft_mini_printf("-r || --room  : color the rooms\n");
-	ft_mini_printf("-d || --debug : for debugging purposes\n");
+	ft_mini_printf("  -a || --ant   : color the ants\n");
+	ft_mini_printf("  -p || --path  : color the paths\n");
+	ft_mini_printf("  -r || --room  : color the rooms\n");
+	ft_mini_printf("  -d || --debug : for debugging purposes\n");
 	exit(0);
 	return ;
 }
@@ -71,18 +71,22 @@ void		get_params(int argc, char *argv[], t_lemin *init)
 	int		i;
 
 	i = 1;
+	init->param.debug = FALSE;
+	init->param.ant_colored = FALSE;
+	init->param.path_colored = FALSE;
+	init->param.room_colored = FALSE;
 	while (--argc)
 	{
 		if (ft_strequ(argv[i], "-h") || ft_strequ(argv[i], "--help"))
 			print_help(argv[0]);
+		else if (ft_strequ(argv[i], "-d") || ft_strequ(argv[i], "--debug"))
+			init->param.debug = TRUE;
 		else if (ft_strequ(argv[i], "-a") || ft_strequ(argv[i], "--ant"))
 			init->param.ant_colored = TRUE;
 		else if (ft_strequ(argv[i], "-p") || ft_strequ(argv[i], "--path"))
 			init->param.path_colored = TRUE;
 		else if (ft_strequ(argv[i], "-r") || ft_strequ(argv[i], "--room"))
 			init->param.room_colored = TRUE;
-		else if (ft_strequ(argv[i], "-d") || ft_strequ(argv[i], "--debug"))
-			init->param.debug = TRUE;
 		else
 			invalid_param(argv[i], argv[0]);
 		i += 1;

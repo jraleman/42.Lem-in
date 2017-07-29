@@ -16,13 +16,45 @@
 ** ...
 */
 
-static void	move(t_ant *ant, t_room *room)
+char const	g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH] =
+{
+	{
+		{"    \\_/   "},
+		{"   '-0-'   "},
+		{"   --0--   "},
+		{"   .-0-.   "},
+	},
+	{
+		{"      \\_/ "},
+		{"    '-0-'  "},
+		{"   --0--   "},
+		{"   .-0-.   "},
+	},
+	{
+		{"  \\_/     "},
+		{"  '-0-'    "},
+		{"   --0--   "},
+		{"   .-0-.   "},
+	}
+};
+
+/*
+** ...
+*/
+
+//static void	print_ant()
+
+/*
+** ...
+*/
+
+static void	move_ants(t_ant *ant, t_room *room)
 {
 	ant->room->has_ant = 0;
 	ant->last = ant->room;
 	ant->room = room;
 	ant->room->has_ant = 1;
-	printf("L%d-%s ", ant->id, ant->room->name);
+	ft_mini_printf("L%d-%s ", ant->id, 39, ant->room->name, 39);
 }
 
 /*
@@ -37,6 +69,11 @@ void		lemin_play(t_lemin *lemin)
 	int		distance;
 	int		result;
 
+	int		i;
+
+	i = 0;
+
+	// INT_MAX (START FROM THE BIGGEST NUMBER)
 	distance = 2147483647;
 	ls = lemin->ants_list->room->paths;
 	while (ls)
@@ -53,7 +90,24 @@ void		lemin_play(t_lemin *lemin)
 			}
 		}
 		ls = ls->next;
+
+
+			//printf("L%d-%s\n", lemin->ants_list->id, next->name);
+			i += 1;
 	}
 	if (distance < 2147483647)
-		move(lemin->ants_list, next);
+		move_ants(lemin->ants_list, next);
+
+
+/*
+	sleep(1);
+	int 	i;
+	i = 0;
+	while (i < ANT_HEIGHT)
+	{
+		ft_mini_printf("%s", g_ant[lemin->param.debug % 3][i++]);
+	}
+	lemin->param.debug += 1;
+*/
+
 }
