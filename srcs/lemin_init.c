@@ -21,10 +21,10 @@ t_lemin		*lemin_init(int total_params, char *params[])
 	t_lemin	*init;
 
 	if (!(init = (t_lemin *)malloc(sizeof(t_lemin))))
-		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
+		ft_puterror_fd("Memory allocation failed!", MALLC_ERR, FT_STD_ERR);
 	init->rooms_list = NULL;
 	init->paths_list = NULL;
-  get_params(total_params, params, init);
+	get_params(total_params, params, init);
 	if ((init->ants_total = get_ants_total()) == FALSE)
 	{
 		lemin_end(init);

@@ -23,7 +23,7 @@ t_ant		*init_ants(int total_ants, t_list *rooms)
 
 	i = 0;
 	if (!(ants = malloc(sizeof(t_ant) * total_ants)))
-		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
+		ft_puterror_fd("Memory allocation failed!", MALLC_ERR, FT_STD_ERR);
 	while (i < total_ants)
 	{
 		ants[i].room = get_room_flag(STARTROOM, rooms);

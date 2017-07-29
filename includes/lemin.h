@@ -14,7 +14,6 @@
 # define LEMIN_H
 
 # include "libft.h"
-
 # include <stdio.h>
 
 /*
@@ -22,22 +21,24 @@
 */
 
 # define STARTROOM 	(1)
-# define NORMAL 		(2)
-# define ENDROOM		(3)
+# define NORMAL 	(2)
+# define ENDROOM	(3)
 
 /*
 ** ...
 */
 
-# define ERROR			(-1)
+# define ERROR		(-1)
+# define PARAM_ERR	(-2)
+# define MALLC_ERR	(-3)
 
 /*
 ** ...
 */
 
-# define FT_STD_INT		(0)
-# define FT_STD_OUT		(1)
-# define FT_STD_ERR		(2)
+# define FT_STD_INT	(0)
+# define FT_STD_OUT	(1)
+# define FT_STD_ERR	(2)
 
 /*
 ** ...
@@ -80,13 +81,13 @@ typedef struct	s_ant
 ** ...
 */
 
-typedef struct   s_param
+typedef struct	s_param
 {
-	int debug;
-	int path;
-	int room;
-	int ant;
-}                t_param;
+	int			debug;
+	int			path;
+	int			room;
+	int			ant;
+}				t_param;
 
 /*
 ** ...
@@ -96,8 +97,9 @@ typedef struct	s_lemin
 {
 	int			ants_total;
 	t_ant		*ants_list;
-	t_list 		*rooms_list;
-	t_list 		*paths_list;
+	t_list		*rooms_list;
+	t_list		*paths_list;
+	t_param		param;
 }				t_lemin;
 
 /*
@@ -107,17 +109,11 @@ typedef struct	s_lemin
 int				lemin_read(t_lemin *lemin);
 int				lemin_validate(t_lemin *lemin);
 void			lemin_end(t_lemin *lemin);
-void			lemin_start(t_lemin *lemin);
-void 			lemin_print(t_lemin *lemin);
 void			lemin_loop(t_lemin *lemin);
-t_lemin			*lemin_init(void);
-
-
-
-
 void			lemin_play(t_lemin *lemin);
-
-
+void			lemin_start(t_lemin *lemin);
+void			lemin_print(t_lemin *lemin);
+t_lemin			*lemin_init(int total_params, char *params[]);
 
 /*
 ** ...
@@ -125,12 +121,12 @@ void			lemin_play(t_lemin *lemin);
 
 int				find_room(void *room, int flag);
 
-
 /*
 ** ...
 */
 
 int				get_ants_total(void);
+void			get_params(int argc, char *argv[], t_lemin *init);
 t_room			*get_room_name(char *name, t_list *list);
 t_room			*get_room_flag(int flag, t_list *list);
 

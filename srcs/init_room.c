@@ -28,7 +28,7 @@ t_room		*init_room(char *line, int room_flag)
 
 	i = 0;
 	if (!(newroom = malloc(sizeof(t_room))))
-		ft_puterror_fd("Memory allocation failed!", ERROR, FT_STD_ERR);
+		ft_puterror_fd("Memory allocation failed!", MALLC_ERR, FT_STD_ERR);
 	while (line[i] != ' ')
 		i += 1;
 	newroom->flag = room_flag;
