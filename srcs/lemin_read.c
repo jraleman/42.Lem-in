@@ -20,12 +20,14 @@ static int	read_command(char *line)
 {
 	int		ret;
 
-	if (line[0] != '#' || line[1] == '#')
+	if (line[0] != '#')
 		ret = 0;
 	else if (ft_strequ("##start", line))
 		ret = STARTROOM;
 	else if (ft_strequ("##end", line))
 		ret = ENDROOM;
+	else if (line[1] == '#')
+		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
 	else
 		ret = NORMAL;
 	return (ret);

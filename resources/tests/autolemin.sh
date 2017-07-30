@@ -40,7 +40,7 @@ done;
 
 unvalid()
 {
-	for map in "empty" "no_rooms" "startisend" "nopath" "no_tubes" "multiends" "nostart" "noend" "no_ants" "noants" "bad_rooms" "invalidcommand1" "whitespaces" "illegalname1" "illegalname" "space_room" "space_room_2" "loop1" "test2commentary" "comments2" "map4" "simple2" "test1" "map3" "input4" "map5" "haaaaaaaaaaaaaaaaaaaardtest";
+	for map in "empty" "no_rooms" "startisend" "nopath" "no_tubes" "multiends" "nostart" "noend" "no_ants" "noants" "bad_rooms" "invalidcommand1" "whitespaces" "illegalname1" "illegalname" "space_room" "space_room_2" "loop1" "test2commentary" "comments2" "map4" "simple2" "test1" "map3" "input4" "haaaaaaaaaaaaaaaaaaaardtest";
 	do
 
 	header;
