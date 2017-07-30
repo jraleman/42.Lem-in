@@ -20,7 +20,13 @@
 static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
 {
 	if (lemin->param.debug == FALSE)
-		ft_mini_printf("L%d-%s ", ant->id, 0, ant->room->name, 0);
+	{
+		ft_putchar_fd('L', FT_STD_OUT);
+		ft_putnbr_fd(ant->id, FT_STD_OUT);
+		ft_putchar_fd('-', FT_STD_OUT);
+		ft_putstr_fd(ant->room->name, FT_STD_OUT);
+		ft_putchar_fd(' ', FT_STD_OUT);
+	}
 	else
 		lemin_debug(lemin, lemin->ant_list, room);
 	return ;

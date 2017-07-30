@@ -18,26 +18,20 @@
 
 static void	print_room(void *room)
 {
-	char	*tmp_x;
-	char	*tmp_y;
 	t_room	*tmp_room;
 
 	if (room != NULL)
 	{
 		tmp_room = (t_room *)room;
-		tmp_x = ft_itoa(tmp_room->x);
-		tmp_y = ft_itoa(tmp_room->y);
 		if (tmp_room->flag == STARTROOM)
 			ft_putendl_fd("##start", FT_STD_OUT);
 		else if (tmp_room->flag == ENDROOM)
 			ft_putendl_fd("##end", FT_STD_OUT);
 		ft_putstr_fd(tmp_room->name, FT_STD_OUT);
 		ft_putchar_fd(' ', FT_STD_OUT);
-		ft_putstr_fd(tmp_x, FT_STD_OUT);
+		ft_putnbr_fd(tmp_room->x, FT_STD_OUT);
 		ft_putchar_fd(' ', FT_STD_OUT);
-		ft_putstr_fd(tmp_y, FT_STD_OUT);
-		free(tmp_x);
-		free(tmp_y);
+		ft_putnbr_fd(tmp_room->y, FT_STD_OUT);
 	}
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
@@ -100,13 +94,11 @@ static void	print_path_colored(void *tunnel)
 
 void		lemin_print(t_lemin *lemin)
 {
-	char	*ants;
-
-	ants = ft_itoa(lemin->ant_total);
 	if (lemin->param.ant_colored == FALSE)
-		ft_putstr_fd(ants, FT_STD_OUT);
+		ft_putnbr_fd(lemin->ant_total, FT_STD_OUT);
 	else
-		ft_mini_printf("%s\n", ants, LIGHT_YELLOW);
+		ft_mini_printf("%d", lemin->ant_total, LIGHT_YELLOW);
+	ft_putchar_fd('\n', FT_STD_OUT);
 	if (lemin->param.room_colored == FALSE)
 		ft_lstforeach(lemin->room_list, print_room);
 	else
@@ -116,6 +108,5 @@ void		lemin_print(t_lemin *lemin)
 	else
 		ft_lstforeach(lemin->path_list, print_path_colored);
 	ft_putchar_fd('\n', FT_STD_OUT);
-	free(ants);
 	return ;
 }
