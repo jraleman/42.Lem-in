@@ -133,6 +133,7 @@ typedef struct			s_param
 typedef struct			s_lemin
 {
 	int					ant_total;
+	long int		moves;
 	t_ant				*ant_list;
 	t_list				*room_list;
 	t_list				*path_list;

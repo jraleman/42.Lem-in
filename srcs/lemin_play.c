@@ -42,6 +42,7 @@ static void	move_ants(t_lemin *lemin, t_ant *ant, t_room *room)
 	ant->room = room;
 	ant->room->has_ant = 1;
 	print_ant(lemin, ant, room);
+	lemin->moves += 1;
 	return ;
 }
 

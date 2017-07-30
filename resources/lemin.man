@@ -10,6 +10,8 @@ lem-in is a program that prints the quickest way to get n ants across the farm.
 To be the first to arrive, ants will need to take the shortest path.
 They will also need to avoid traffic jams as well as walking all over their
 fellow ants.
+.SH OPTIONS
+If your program uses options, as in the above SYNOPSIS section, this is where you explain what each option does. For instance, what does [-d] do when it is given as an argument to program foo? Explain here.
 .SH SEE ALSO
 ft_putchar(69), ft_weed(420), theanswer(42)
 .SH BUGS
