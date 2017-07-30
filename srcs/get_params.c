@@ -101,5 +101,4 @@ void		get_params(int argc, char *argv[], t_lemin *init)
 			invalid_param(argv[i], argv[0]);
 		i += 1;
 	}
-	return ;
 }

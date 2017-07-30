@@ -29,7 +29,7 @@ static int	validate_room(t_list *rooms)
 			tmp = (t_room *)rooms->content;
 			if (tmp->name[0] == '#' || tmp->name[0] == 'L' \
 				|| ft_strchr(tmp->name, '-') != 0)
-				break;
+				break ;
 			rooms = rooms->next;
 		}
 		ret = 1;
