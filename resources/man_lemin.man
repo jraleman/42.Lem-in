@@ -1,0 +1,25 @@
+.\" Manpage for lem-in.
+.\" Contact jalemank@studeqnt.42.us.org to correct errors or typos.
+.TH man 1 "May 26, 2017" "42 Silicon Valley" "lem-in man page"
+.SH NAME
+lem-in \- an "Hex" simulator
+.SH SYNOPSIS
+lemin [--help | --ant | --room | --path | --debug] < [lemin_map]
+.SH DESCRIPTION
+lem-in is a program that prints the quickest way to get n ants across the farm.
+To be the first to arrive, ants will need to take the shortest path.
+They will also need to avoid traffic jams as well as walking all over their
+fellow ants.
+.SH SEE ALSO
+ft_putchar(69), ft_weed(420), theanswer(42)
+.SH BUGS
+No known bugs. Just ants ;)
+.SH STANDARDS
+The lem-in program follows the applicable standard (Norm) at 42. This is a
+programming standard defines a set of rules to follow when writing code.
+It must always respect the Norm for all C projects at the school,
+unless otherwise specified.
+.SH HISTORY
+A 42 project needed to be able to do CoreWars.
+.SH AUTHOR
+Jose Ramon Aleman (jalemank@student.42.us.org)
