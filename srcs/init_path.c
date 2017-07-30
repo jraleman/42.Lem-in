@@ -21,7 +21,7 @@ t_path		*init_path(char *line)
 	int		i;
 	t_path	*newpath;
 
-	if (!(newpath = malloc(sizeof(t_path))))
+	if (!(newpath = (t_path *)malloc(sizeof(t_path))))
 		ft_puterror_fd("Memory allocation failed!", MALLC_ERR, FT_STD_ERR);
 	i = (int)ft_strlchr(line, '-');
 	newpath->door1 = ft_strsub(line, 0, i);
