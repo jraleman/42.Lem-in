@@ -18,7 +18,7 @@ header()
 
 working()
 {
-	for map in "directlink2end" "simple" "roundmap" "input2" "duplicatepipe1" "input3" "underflow" "invalidcommand" "comments" "diamond" "simple1" "overflow" "loop" "hardmap" "cobmap" "map10" "testbug" "pentagram" "input1" "in0" "map14" "map42" "input0" "maptest" "triforce" "shortest" "test" "Chloe" "toile" "multiplewaysmap" "toile2" "europe_utf" "europe" "42" "bmap" "big" "mmkr2";
+	for map in "directlink2end" "simple" "roundmap" "input2" "duplicatepipe1" "input3" "underflow" "invalidcommand" "comments" "diamond" "simple1" "overflow" "loop" "hardmap" "map10" "pentagram" "input1" "in0" "map14" "map42" "input0" "maptest" "triforce" "shortest" "Chloe" "multiplewaysmap" "europe" "42";
 	do
 	header;
 	echo "\x1B[35m***********INPUT FILE************\x1B[0m";
