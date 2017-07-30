@@ -1,6 +1,6 @@
 .\" Manpage for lem-in.
 .\" Contact jalemank@studeqnt.42.us.org to correct errors or typos.
-.TH man 1 "May 26, 2017" "42 Silicon Valley" "lem-in man page"
+.TH lemin 1 "May 26, 2017" "42 Silicon Valley" "lem-in man page"
 .SH NAME
 lem-in \- an "Hex" simulator
 .SH SYNOPSIS
