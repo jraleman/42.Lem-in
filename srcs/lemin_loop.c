@@ -100,16 +100,15 @@ static void	move_ants(t_lemin *lemin, int turn)
 		{
 			if (can_move(lemin->ants_list + i))
 			{
+				turn = 0;
 				lemin->ants_list += i;
 				lemin_play(lemin);
 				lemin->ants_list -= i;
-				turn = 0;
-				//break ;
 			}
 			i += 1;
 		}
+		ft_putchar_fd('\n', FT_STD_OUT);
 	}
-	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
 
@@ -119,11 +118,11 @@ static void	move_ants(t_lemin *lemin, int turn)
 
 void		lemin_loop(t_lemin *lemin)
 {
-	int    turn;
+	int		turn;
 
-	turn = 0;
 	while (!game_over(lemin->ants_list, lemin->ants_total))
 	{
+		turn = 0;
 		reset_ants(lemin->ants_list, lemin->ants_total);
 		move_ants(lemin, turn);
 	}
