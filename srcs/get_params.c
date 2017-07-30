@@ -79,10 +79,6 @@ void		get_params(int argc, char *argv[], t_lemin *init)
 	int		i;
 
 	i = 1;
-	init->param.debug = FALSE;
-	init->param.ant_colored = FALSE;
-	init->param.path_colored = FALSE;
-	init->param.room_colored = FALSE;
 	while (--argc)
 	{
 		if (ft_strequ(argv[i], "-h") || ft_strequ(argv[i], "--help"))
@@ -101,4 +97,5 @@ void		get_params(int argc, char *argv[], t_lemin *init)
 			invalid_param(argv[i], argv[0]);
 		i += 1;
 	}
+	return ;
 }

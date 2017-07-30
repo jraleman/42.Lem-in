@@ -19,6 +19,7 @@
 ** ...
 */
 
+# define IGNORE			(0)
 # define STARTROOM 		(1)
 # define NORMAL 		(2)
 # define ENDROOM		(3)

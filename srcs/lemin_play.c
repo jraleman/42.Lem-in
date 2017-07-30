@@ -18,7 +18,7 @@
 
 static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
 {
-	if (lemin->param.debug == FALSE)
+	if (lemin->param.debug != TRUE)
 	{
 		ft_putchar_fd('L', FT_STD_OUT);
 		ft_putnbr_fd(ant->id, FT_STD_OUT);

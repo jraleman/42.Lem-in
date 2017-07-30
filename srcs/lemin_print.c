@@ -94,16 +94,16 @@ static void	print_path_colored(void *tunnel)
 
 void		lemin_print(t_lemin *lemin)
 {
-	if (lemin->param.ant_colored == FALSE)
+	if (lemin->param.ant_colored != TRUE)
 		ft_putnbr_fd(lemin->ant_total, FT_STD_OUT);
 	else
 		ft_mini_printf("%d", lemin->ant_total, LIGHT_YELLOW);
 	ft_putchar_fd('\n', FT_STD_OUT);
-	if (lemin->param.room_colored == FALSE)
+	if (lemin->param.room_colored != TRUE)
 		ft_lstforeach(lemin->room_list, print_room);
 	else
 		ft_lstforeach(lemin->room_list, print_room_colored);
-	if (lemin->param.path_colored == FALSE)
+	if (lemin->param.path_colored != TRUE)
 		ft_lstforeach(lemin->path_list, print_path);
 	else
 		ft_lstforeach(lemin->path_list, print_path_colored);

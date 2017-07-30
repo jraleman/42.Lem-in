@@ -39,8 +39,5 @@ int			find_room(void *room, int targetflag)
 		testing = testing->next;
 	}
 	current->busy = 0;
-	if (smallestpath == FT_INT_MAX)
-		return (-1);
-	else
-		return (smallestpath);
+	return (smallestpath == FT_INT_MAX ? -1 : smallestpath);
 }

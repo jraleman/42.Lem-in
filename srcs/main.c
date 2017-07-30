@@ -26,7 +26,7 @@ int			main(int argc, char *argv[])
 	if (lemin_validate(lemin) != TRUE)
 	{
 		lemin_end(lemin);
-		ft_puterror_fd("Error :(", ERROR, FT_STD_ERR);
+		ft_puterror_fd("Error: Not enough data.", ERROR, FT_STD_ERR);
 	}
 	lemin_loop(lemin);
 	return (0);
