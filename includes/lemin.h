@@ -132,10 +132,10 @@ typedef struct			s_param
 
 typedef struct			s_lemin
 {
-	int					ants_total;
-	t_ant				*ants_list;
-	t_list				*rooms_list;
-	t_list				*paths_list;
+	int					ant_total;
+	t_ant				*ant_list;
+	t_list				*room_list;
+	t_list				*path_list;
 	t_param				param;
 }						t_lemin;
 
@@ -163,7 +163,7 @@ int						find_room(void *room, int flag);
 ** ...
 */
 
-int						get_ants_total(void);
+int						get_ant_total(void);
 void					get_params(int argc, char *argv[], t_lemin *init);
 t_room					*get_room_name(char *name, t_list *list);
 t_room					*get_room_flag(int flag, t_list *list);

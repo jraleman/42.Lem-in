@@ -22,7 +22,7 @@ static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
 	if (lemin->param.debug == FALSE)
 		ft_mini_printf("L%d-%s ", ant->id, 0, ant->room->name, 0);
 	else
-		lemin_debug(lemin, lemin->ants_list, room);
+		lemin_debug(lemin, lemin->ant_list, room);
 	return ;
 }
 
@@ -53,12 +53,12 @@ void		lemin_play(t_lemin *lemin)
 	t_room	*next;
 
 	distance = FT_INT_MAX;
-	ls = lemin->ants_list->room->paths;
+	ls = lemin->ant_list->room->paths;
 	while (ls)
 	{
 		tmp = (t_room *)ls->content;
 		if ((tmp->flag == ENDROOM || !tmp->has_ant) \
-				&& tmp != lemin->ants_list->last)
+				&& tmp != lemin->ant_list->last)
 		{
 			result = find_room(tmp, ENDROOM);
 			if (result < distance && result > -1)
@@ -70,5 +70,5 @@ void		lemin_play(t_lemin *lemin)
 		ls = ls->next;
 	}
 	if (distance < FT_INT_MAX)
-		move_ants(lemin, lemin->ants_list, next);
+		move_ants(lemin, lemin->ant_list, next);
 }

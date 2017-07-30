@@ -51,15 +51,15 @@ static void	delete_paths(void *data)
 
 void		lemin_end(t_lemin *lemin)
 {
-	if (lemin->rooms_list)
+	if (lemin->room_list)
 	{
-		ft_lstforeach(lemin->rooms_list, delete_rooms);
-		ft_lst_rec_free(lemin->rooms_list);
+		ft_lstforeach(lemin->room_list, delete_rooms);
+		ft_lst_rec_free(lemin->room_list);
 	}
-	if (lemin->paths_list)
+	if (lemin->path_list)
 	{
-		ft_lstforeach(lemin->paths_list, delete_paths);
-		ft_lst_rec_free(lemin->paths_list);
+		ft_lstforeach(lemin->path_list, delete_paths);
+		ft_lst_rec_free(lemin->path_list);
 	}
 	free(lemin);
 	return ;

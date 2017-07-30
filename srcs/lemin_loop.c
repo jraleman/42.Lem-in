@@ -92,18 +92,18 @@ static void	move_ants(t_lemin *lemin, int turn)
 {
 	int		i;
 
-	while (!turn && !game_over(lemin->ants_list, lemin->ants_total))
+	while (!turn && !game_over(lemin->ant_list, lemin->ant_total))
 	{
 		i = 0;
 		turn = 1;
-		while (i < lemin->ants_total)
+		while (i < lemin->ant_total)
 		{
-			if (can_move(lemin->ants_list + i))
+			if (can_move(lemin->ant_list + i))
 			{
 				turn = 0;
-				lemin->ants_list += i;
+				lemin->ant_list += i;
 				lemin_play(lemin);
-				lemin->ants_list -= i;
+				lemin->ant_list -= i;
 			}
 			i += 1;
 		}
@@ -120,10 +120,10 @@ void		lemin_loop(t_lemin *lemin)
 {
 	int		turn;
 
-	while (!game_over(lemin->ants_list, lemin->ants_total))
+	while (!game_over(lemin->ant_list, lemin->ant_total))
 	{
 		turn = 0;
-		reset_ants(lemin->ants_list, lemin->ants_total);
+		reset_ants(lemin->ant_list, lemin->ant_total);
 		move_ants(lemin, turn);
 	}
 	lemin_end(lemin);

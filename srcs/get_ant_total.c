@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ants_total.c                                       :+:      :+:    :+:   */
+/*   get_ant_total.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaleman <jaleman@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 ** Get the total number of ants.
 */
 
-int			get_ants_total(void)
+int			get_ant_total(void)
 {
 	char	*line;
 	int		ant_number;

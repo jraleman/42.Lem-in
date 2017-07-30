@@ -91,17 +91,17 @@ static void	print_path_colored(void *tunnel)
 void		lemin_print(t_lemin *lemin)
 {
 	if (lemin->param.ant_colored == FALSE)
-		ft_mini_printf("%d\n", lemin->ants_total, RESET_COLOUR);
+		ft_mini_printf("%d\n", lemin->ant_total, RESET_COLOUR);
 	else
-		ft_mini_printf("%d\n", lemin->ants_total, LIGHT_YELLOW);
+		ft_mini_printf("%d\n", lemin->ant_total, LIGHT_YELLOW);
 	if (lemin->param.room_colored == FALSE)
-		ft_lstforeach(lemin->rooms_list, print_room);
+		ft_lstforeach(lemin->room_list, print_room);
 	else
-		ft_lstforeach(lemin->rooms_list, print_room_colored);
+		ft_lstforeach(lemin->room_list, print_room_colored);
 	if (lemin->param.path_colored == FALSE)
-		ft_lstforeach(lemin->paths_list, print_path);
+		ft_lstforeach(lemin->path_list, print_path);
 	else
-		ft_lstforeach(lemin->paths_list, print_path_colored);
+		ft_lstforeach(lemin->path_list, print_path_colored);
 	ft_putchar_fd('\n', FT_STD_OUT);
 	return ;
 }
