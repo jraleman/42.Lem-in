@@ -12,57 +12,6 @@
 
 #include "lemin.h"
 
-/*
-** ...
-*/
-
-char const	g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH] =
-{
-	{
-		{"    \\_/   \n"},
-		{"   '-0-'   \n"},
-		{"   --0--   \n"},
-		{"   .-0-.   \n"},
-	},
-	{
-		{"      \\_/ \n"},
-		{"    '-0-'  \n"},
-		{"   --0--   \n"},
-		{"   .-0-.   \n"},
-	},
-	{
-		{"  \\_/     \n"},
-		{"  '-0-'    \n"},
-		{"   --0--   \n"},
-		{"   .-0-.   \n"},
-	}
-};
-
-/*
-** ...
-*/
-
-static void	print_debug(t_lemin *lemin, t_ant *ant, t_room *room)
-{
-	int		i;
-
-	i = 0;
-	usleep(DEBUG_SLEEP);
-	ft_mini_printf("\n\n");
-	while (i < ANT_HEIGHT)
-	{
-		ft_mini_printf("%s", g_ant[lemin->param.debug % 3][i], LIGHT_YELLOW);
-		i += 1;
-	}
-	ft_mini_printf("\n");
-	ft_mini_printf("Ant  id   : %d\n", ant->id, LIGHT_YELLOW);
-	ft_mini_printf("Room name : %d\n", room->flag, LIGHT_RED);
-	ft_mini_printf("Room flag : %d\n", room->flag, LIGHT_RED);
-	ft_mini_printf("L%d-%s \n", ant->id, LIGHT_YELLOW, \
-					ant->room->name, LIGHT_RED);
-	lemin->param.debug += 1;
-	return ;
-}
 
 /*
 ** ...
@@ -73,7 +22,7 @@ static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
 	if (lemin->param.debug == FALSE)
 		ft_mini_printf("L%d-%s ", ant->id, 0, ant->room->name, 0);
 	else
-		print_debug(lemin, lemin->ants_list, room);
+		lemin_debug(lemin, lemin->ants_list, room);
 	return ;
 }
 

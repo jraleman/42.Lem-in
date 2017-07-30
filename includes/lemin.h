@@ -150,6 +150,7 @@ void					lemin_loop(t_lemin *lemin);
 void					lemin_play(t_lemin *lemin);
 void					lemin_start(t_lemin *lemin);
 void					lemin_print(t_lemin *lemin);
+void					lemin_debug(t_lemin *lemin, t_ant *ant, t_room *room);
 t_lemin					*lemin_init(int total_params, char *params[]);
 
 /*
