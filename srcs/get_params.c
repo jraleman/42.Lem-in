@@ -33,17 +33,16 @@ char const	g_logo[LOGO_HEIGHT][LOGO_WIDTH] =
 
 static void	print_help(char *progname)
 {
-	ft_mini_printf("%s\n", g_logo[0], LIGHT_GREEN);
-	ft_mini_printf("The goal of this project is to find the quickest way " \
-					"to get n ants across the farm.\n");
-	ft_mini_printf("Lemin reads from the standard input. " \
-					"You may write line by or feed in a file, like this:\n");
-	ft_mini_printf("%s < test.map\n", progname, 91);
+	ft_mini_printf("\n%s\n", g_logo[0], LIGHT_GREEN);
+	ft_mini_printf("Lemin reads from the standard input. \n");
+	ft_mini_printf("You may write line by or feed in a file, like this:\n");
+	ft_mini_printf("%s < test.map\n", progname, LIGHT_BLUE);
 	ft_mini_printf("Your may add the following arguments for: \n");
-	ft_mini_printf("    -a || --ant   : color the ants\n");
-	ft_mini_printf("    -p || --path  : color the paths\n");
-	ft_mini_printf("    -r || --room  : color the rooms\n");
-	ft_mini_printf("    -d || --debug : for debugging purposes\n");
+	ft_mini_printf("    -m | --man    -> view the man page\n");
+	ft_mini_printf("    -a | --ant    -> color the ants\n");
+	ft_mini_printf("    -p | --path   -> color the paths\n");
+	ft_mini_printf("    -r | --room   -> color the rooms\n");
+	ft_mini_printf("    -d | --debug  -> for debugging purposes\n");
 	exit(0);
 	return ;
 }
@@ -58,6 +57,15 @@ static void	invalid_param(char *arg, char *progname)
 	ft_mini_printf("Run %s -h or --help to know how " \
 					"to run this shit. :)\n", progname);
 	exit(PARAM_ERR);
+	return ;
+}
+
+static void	display_manpage(void)
+{
+	int		ret;
+
+	ret = system("man ./resources/lemin.man");
+	exit(ret);
 	return ;
 }
 
@@ -79,6 +87,8 @@ void		get_params(int argc, char *argv[], t_lemin *init)
 	{
 		if (ft_strequ(argv[i], "-h") || ft_strequ(argv[i], "--help"))
 			print_help(argv[0]);
+		else if (ft_strequ(argv[i], "-m") || ft_strequ(argv[i], "--man"))
+			display_manpage();
 		else if (ft_strequ(argv[i], "-d") || ft_strequ(argv[i], "--debug"))
 			init->param.debug = TRUE;
 		else if (ft_strequ(argv[i], "-a") || ft_strequ(argv[i], "--ant"))
