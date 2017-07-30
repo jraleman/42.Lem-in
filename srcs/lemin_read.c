@@ -20,7 +20,7 @@ static int	read_command(char *line)
 {
 	int		ret;
 
-	if (*line != '#')
+	if (line[0] != '#' || line[1] == '#')
 		ret = 0;
 	else if (ft_strequ("##start", line))
 		ret = STARTROOM;

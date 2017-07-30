@@ -13,6 +13,31 @@
 #include "lemin.h"
 
 /*
+** ...
+*/
+
+static int	validate_room(t_list *rooms)
+{
+	int		ret;
+	t_room	*tmp;
+
+	ret = 0;
+	if (rooms != 0)
+	{
+		while (rooms)
+		{
+			tmp = (t_room *)rooms->content;
+			if (tmp->name[0] == '#' || tmp->name[0] == 'L' \
+				|| ft_strchr(tmp->name, '-') != 0)
+				break;
+			rooms = rooms->next;
+		}
+		ret = 1;
+	}
+	return (ret && !rooms);
+}
+
+/*
 ** Validate a flag.
 */
 
@@ -56,5 +81,6 @@ int			lemin_validate(t_lemin *lemin)
 {
 	return (validate_path(get_room_flag(STARTROOM, lemin->room_list), \
 										lemin->path_list) \
-			&& validate_flags(lemin->room_list, lemin->path_list));
+			&& validate_flags(lemin->room_list, lemin->path_list) \
+			&& validate_room(lemin->room_list));
 }

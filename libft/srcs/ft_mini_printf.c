@@ -18,12 +18,9 @@
 
 void		set_color(int c)
 {
-	//if (c != 0)
-	//{
-		ft_putstr_fd("\x1B[", FT_STD_OUT);
-		ft_putnbr_fd(c, FT_STD_OUT);
-		ft_putchar_fd('m', FT_STD_OUT);
-	//}
+	ft_putstr_fd("\x1B[", FT_STD_OUT);
+	ft_putnbr_fd(c, FT_STD_OUT);
+	ft_putchar_fd('m', FT_STD_OUT);
 	return ;
 }
 
