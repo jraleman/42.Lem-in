@@ -11,7 +11,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-norminette srcs/ && \
-norminette includes/ && \
-norminette libft/srcs/ && \
-norminette libft/includes/
+clear
+find . -name "*.c" -o -name "*.h" | xargs norminette
