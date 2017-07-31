@@ -1,27 +1,46 @@
 .\" Manpage for lem-in.
 .\" Contact jalemank@studeqnt.42.us.org to correct errors or typos.
-.TH lemin 1 "May 26, 2017" "42 Silicon Valley" "lem-in man page"
+
+.TH lem-in 6 "May 26, 2017" "42 Silicon Valley" "lem-in man page"
+
 .SH NAME
 lem-in \- an "Hex" simulator
+
 .SH SYNOPSIS
-lemin [--help | --ant | --room | --path | --debug] < [lemin_map]
+lem-in [--help | --ant | --room | --path | --debug] < [lemin_map]
+
 .SH DESCRIPTION
 lem-in is a program that prints the quickest way to get n ants across the farm.
 To be the first to arrive, ants will need to take the shortest path.
 They will also need to avoid traffic jams as well as walking all over their
 fellow ants.
+
 .SH OPTIONS
-If your program uses options, as in the above SYNOPSIS section, this is where you explain what each option does. For instance, what does [-d] do when it is given as an argument to program foo? Explain here.
-.SH SEE ALSO
-ft_putchar(69), ft_weed(420), theanswer(42)
+.IP "-a, --ant"
+Color the total number of ants.
+.IP "-d, --debug"
+Prints step by step where the ants are moving, ant the number of moves required.
+.IP "-h, --help"
+Display a message on how to use lem-in, and the available parameters.
+.IP "-p, --path"
+Color the paths from the map.
+.IP "-r, --room"
+Color the rooms from the map.
+
 .SH BUGS
 No known bugs. Just ants ;)
+
 .SH STANDARDS
 The lem-in program follows the applicable standard (Norm) at 42. This is a
 programming standard defines a set of rules to follow when writing code.
 It must always respect the Norm for all C projects at the school,
 unless otherwise specified.
+
 .SH HISTORY
-A 42 project needed to be able to do CoreWars.
+A 42 project needed to be able to do Corewar.
+
 .SH AUTHOR
 Jose Ramon Aleman (jalemank@student.42.us.org)
+
+.SH SEE ALSO
+fillit(6), get_next_file(3), ft_printf(3)
