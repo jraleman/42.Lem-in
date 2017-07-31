@@ -13,10 +13,10 @@
 #include "lemin.h"
 
 /*
-** ...
+** Check if an ant can move to a room.
 */
 
-static int	can_move(t_ant *ant)
+static int	check_move(t_ant *ant)
 {
 	int		yes;
 	int		may_move;
@@ -45,7 +45,7 @@ static int	can_move(t_ant *ant)
 }
 
 /*
-** ...
+** Checks if the lemin loop should end..
 */
 
 static int	end_loop(t_ant *ants, int antnum)
@@ -85,20 +85,22 @@ static void	reset_ants(t_ant *ants, int antnum)
 }
 
 /*
-** ...
+** Check the ants, sand see if they can move.
 */
 
-static void	move_ants(t_lemin *lemin, int turn)
+static void	check_ants(t_lemin *lemin)
 {
 	int		i;
+	int		turn;
 
+	turn = 0;
 	while (!turn && !end_loop(lemin->ant_list, lemin->ant_total))
 	{
 		i = 0;
 		turn = 1;
 		while (i < lemin->ant_total)
 		{
-			if (can_move(lemin->ant_list + i))
+			if (check_move(lemin->ant_list + i))
 			{
 				turn = 0;
 				lemin->ant_list += i;
@@ -113,18 +115,15 @@ static void	move_ants(t_lemin *lemin, int turn)
 }
 
 /*
-** ...
+** Loop through
 */
 
 void		lemin_loop(t_lemin *lemin)
 {
-	int		turn;
-
 	while (!end_loop(lemin->ant_list, lemin->ant_total))
 	{
-		turn = 0;
 		reset_ants(lemin->ant_list, lemin->ant_total);
-		move_ants(lemin, turn);
+		check_ants(lemin);
 	}
 	lemin_end(lemin);
 	return ;

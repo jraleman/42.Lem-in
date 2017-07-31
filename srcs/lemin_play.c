@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** Prints the movement of the ant in the correct format.
 */
 
 static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
@@ -32,7 +32,7 @@ static void	print_ant(t_lemin *lemin, t_ant *ant, t_room *room)
 }
 
 /*
-** ...
+** Move the ants to a room.
 */
 
 static void	move_ants(t_lemin *lemin, t_ant *ant, t_room *room)
@@ -47,7 +47,7 @@ static void	move_ants(t_lemin *lemin, t_ant *ant, t_room *room)
 }
 
 /*
-** ...
+** Starts the game loop.
 */
 
 void		lemin_play(t_lemin *lemin)
