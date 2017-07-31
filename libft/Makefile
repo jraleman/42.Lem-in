@@ -22,7 +22,9 @@ SRCS    := ft_atoi.c ft_isdigit.c ft_isspace.c ft_lst_rec_free.c \
 					 ft_putstr_fd.c ft_puterror_fd.c ft_strchr.c ft_strcmp.c \
 					 ft_strdel.c ft_strdup.c ft_strequ.c ft_strlchr.c ft_strlen.c \
 					 ft_strsub.c get_next_line.c ft_strjoin.c ft_strcpy.c ft_strcat.c \
-					 ft_strnew.c ft_putendl_fd.c ft_mini_printf.c ft_itoa.c ft_putnbr_fd.c
+					 ft_strnew.c ft_putendl_fd.c ft_mini_printf.c ft_itoa.c \
+					 ft_putnbr_fd.c ft_lstdelnode.c ft_lstdelone.c ft_lstadd.c \
+					 ft_lstfind.c ft_lstnew.c ft_memcpy.c
 
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
