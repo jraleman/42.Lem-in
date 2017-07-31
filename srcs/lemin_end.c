@@ -62,8 +62,6 @@ void		lemin_end(t_lemin *lemin)
 		ft_lstforeach(lemin->path_list, delete_paths);
 		ft_lst_rec_free(lemin->path_list);
 	}
-	if (lemin->param.debug == TRUE)
-		ft_mini_printf("\nNumber of moves : %d\n", lemin->moves, LIGHT_GREEN);
 	free(lemin);
 	return ;
 }
