@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** Initialize the room.
+** Initialize the room list.
 */
 
 t_room		*init_room(char *line, int room_flag)

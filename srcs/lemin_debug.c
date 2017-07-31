@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** ...
+** 2D String array to store the ascii art of the ants.
 */
 
 char const	g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH] =
@@ -39,7 +39,7 @@ char const	g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH] =
 };
 
 /*
-** ...
+** Display the debug information to the standard out.
 */
 
 void		lemin_debug(t_lemin *lemin, t_ant *ant, t_room *room)

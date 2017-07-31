@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** Delete all the rooms.
+** Delete all the rooms from the list.
 */
 
 static void	delete_rooms(void *data)
@@ -29,7 +29,7 @@ static void	delete_rooms(void *data)
 }
 
 /*
-** Delete all the paths.
+** Delete all the paths from the list.
 */
 
 static void	delete_paths(void *data)
@@ -47,6 +47,7 @@ static void	delete_paths(void *data)
 /*
 ** This is the end.
 ** Free everything, so we don't have memory leaks. :)
+** If the debug option is on, display the total number of moves.
 */
 
 void		lemin_end(t_lemin *lemin)

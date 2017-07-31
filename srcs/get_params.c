@@ -70,8 +70,8 @@ static void	display_manpage(void)
 }
 
 /*
-** ...
-** do the man page!!!
+** Get the parameters from the arguments list.
+** Do an action depending on the parameter given.
 */
 
 void		get_params(int argc, char *argv[], t_lemin *init)

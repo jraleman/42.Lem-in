@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** Initialize the ants.
+** Initialize the ants list.
 */
 
 t_ant		*init_ants(int total_ants, t_list *rooms)

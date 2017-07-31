@@ -13,7 +13,8 @@
 #include "lemin.h"
 
 /*
-** ...
+** Find a room, returning the smallest path.
+** If none is found, returns an error.
 */
 
 int			find_room(void *room, int targetflag)
@@ -39,5 +40,5 @@ int			find_room(void *room, int targetflag)
 		testing = testing->next;
 	}
 	current->busy = 0;
-	return (smallestpath == FT_INT_MAX ? -1 : smallestpath);
+	return (smallestpath == FT_INT_MAX ? ERROR : smallestpath);
 }

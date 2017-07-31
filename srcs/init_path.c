@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** Initialize the path.
+** Initialize the path list.
 */
 
 t_path		*init_path(char *line)
