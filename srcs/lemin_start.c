@@ -13,7 +13,7 @@
 #include "lemin.h"
 
 /*
-** Start going from room to room.
+** Starts going from every room and path in the list, before being validated.
 */
 
 void		lemin_start(t_lemin *lemin)
@@ -32,10 +32,10 @@ void		lemin_start(t_lemin *lemin)
 		{
 			path = (t_path *)tmp_path->content;
 			if (ft_strequ(path->door1, room->name))
-				room->paths = ft_lstpush(room->paths,
+				room->paths = ft_lstpush(room->paths, \
 						get_room_name(path->door2, lemin->room_list));
 			if (ft_strequ(path->door2, room->name))
-				room->paths = ft_lstpush(room->paths,
+				room->paths = ft_lstpush(room->paths, \
 						get_room_name(path->door1, lemin->room_list));
 			tmp_path = tmp_path->next;
 		}

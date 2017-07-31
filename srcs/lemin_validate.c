@@ -13,10 +13,10 @@
 #include "lemin.h"
 
 /*
-** ...
+** Validate the rooms names.
 */
 
-static int	validate_room(t_list *rooms)
+static int	validate_rooms_name(t_list *rooms)
 {
 	int		ret;
 	t_room	*tmp;
@@ -38,10 +38,10 @@ static int	validate_room(t_list *rooms)
 }
 
 /*
-** Validate a flag.
+** Validate the rooms flag.
 */
 
-static int	validate_flags(t_list *rooms, t_list *paths)
+static int	validate_rooms_flag(t_list *rooms, t_list *paths)
 {
 	int		start;
 	int		end;
@@ -65,10 +65,10 @@ static int	validate_flags(t_list *rooms, t_list *paths)
 }
 
 /*
-** Validate a path.
+** Validate the paths.
 */
 
-static int	validate_path(t_room *rooms, t_list *paths)
+static int	validate_paths(t_room *rooms, t_list *paths)
 {
 	return ((rooms != 0 && paths != 0) && find_room(rooms, ENDROOM) >= 0);
 }
@@ -79,8 +79,8 @@ static int	validate_path(t_room *rooms, t_list *paths)
 
 int			lemin_validate(t_lemin *lemin)
 {
-	return (validate_path(get_room_flag(STARTROOM, lemin->room_list), \
+	return (validate_paths(get_room_flag(STARTROOM, lemin->room_list), \
 										lemin->path_list) \
-			&& validate_flags(lemin->room_list, lemin->path_list) \
-			&& validate_room(lemin->room_list));
+			&& validate_rooms_flag(lemin->room_list, lemin->path_list) \
+			&& validate_rooms_name(lemin->room_list));
 }

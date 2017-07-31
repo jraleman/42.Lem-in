@@ -53,7 +53,7 @@ static void	print_path(void *tunnel)
 }
 
 /*
-** Print the paths.
+** Print the rooms (colored).
 */
 
 static void	print_room_colored(void *room)
@@ -75,7 +75,7 @@ static void	print_room_colored(void *room)
 }
 
 /*
-** Print the rooms.
+** Print the paths (colored).
 */
 
 static void	print_path_colored(void *tunnel)

@@ -48,7 +48,7 @@ static int	can_move(t_ant *ant)
 ** ...
 */
 
-static int	game_over(t_ant *ants, int antnum)
+static int	end_loop(t_ant *ants, int antnum)
 {
 	int		i;
 	int		ret;
@@ -92,7 +92,7 @@ static void	move_ants(t_lemin *lemin, int turn)
 {
 	int		i;
 
-	while (!turn && !game_over(lemin->ant_list, lemin->ant_total))
+	while (!turn && !end_loop(lemin->ant_list, lemin->ant_total))
 	{
 		i = 0;
 		turn = 1;
@@ -120,7 +120,7 @@ void		lemin_loop(t_lemin *lemin)
 {
 	int		turn;
 
-	while (!game_over(lemin->ant_list, lemin->ant_total))
+	while (!end_loop(lemin->ant_list, lemin->ant_total))
 	{
 		turn = 0;
 		reset_ants(lemin->ant_list, lemin->ant_total);
