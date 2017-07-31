@@ -26,7 +26,7 @@ int			get_ant_total(void)
 	{
 		while (line[0] == '#')
 		{
-			free(line);
+			ft_memdel((void **)&line);
 			if (get_next_line(0, &line) == ERROR)
 			{
 				line = NULL;

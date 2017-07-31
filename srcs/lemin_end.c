@@ -62,6 +62,8 @@ void		lemin_end(t_lemin *lemin)
 		ft_lstforeach(lemin->path_list, delete_paths);
 		ft_lst_rec_free(lemin->path_list);
 	}
-	free(lemin);
+	if (lemin->ant_list)
+		ft_memdel((void **)&lemin->ant_list);
+	ft_memdel((void **)&lemin);
 	return ;
 }
