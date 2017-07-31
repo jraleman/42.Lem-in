@@ -24,6 +24,10 @@ t_lemin		*lemin_init(int total_params, char *params[])
 		ft_puterror_fd("Memory allocation failed.", MALLC_ERR, FT_STD_ERR);
 	init->room_list = NULL;
 	init->path_list = NULL;
+	init->param.debug = FALSE;
+	init->param.ant_colored = FALSE;
+	init->param.path_colored = FALSE;
+	init->param.room_colored = FALSE;
 	get_params(total_params, params, init);
 	if ((init->ant_total = get_ant_total()) == FALSE)
 	{

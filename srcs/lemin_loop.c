@@ -125,7 +125,7 @@ void		lemin_loop(t_lemin *lemin)
 		reset_ants(lemin->ant_list, lemin->ant_total);
 		check_ants(lemin);
 	}
-	if (lemin->param.debug == TRUE)
+	if (lemin->param.debug != FALSE)
 		ft_mini_printf("\nNumber of moves : %d\n", lemin->moves, LIGHT_GREEN);
 	lemin_end(lemin);
 	return ;
