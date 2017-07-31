@@ -168,51 +168,53 @@ typedef struct		s_stack
 ** Get next line structure.
 */
 
-typedef struct	s_gnl
+typedef struct		s_gnl
 {
-	int			fd;
-	char		*file_content;
-}				t_gnl;
+	int				fd;
+	char			*file_content;
+}					t_gnl;
 
 /*
 ** Function prototypes.
 */
 
-int			ft_atoi(const char *str);
-int			ft_isdigit(int c);
-int			ft_isspace(int c);
-int			get_next_line(const int fd, char **line);
-void		ft_gnl_free(void *content, size_t size);
-t_list 	**ft_gnl_list(void);
-void		ft_lst_rec_free(t_list *first);
-void		ft_lstdelnode(t_list **head, t_list *node, void (*del)(void*, size_t));
-void		ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
-void		ft_lstadd(t_list **alst, t_list *new);
-t_list	*ft_lstfind(t_list *begin_list, void *data, int (*cmp)());
-void		ft_lstdelnode(t_list **head, t_list *node, void (*del)(void*, size_t));
-t_list	*ft_lstnew(void const *content, size_t content_size);
-void		ft_lstforeach(t_list *lst, void (*f)());
-t_list		*ft_lstpush(t_list *first, void *item);
-void		ft_memdel(void **ap);
-int			ft_putstr_fd(char const *s, int fd);
-int			ft_putchar_fd(char c, int fd);
-int			ft_putendl_fd(char const *s, int fd);
-void		ft_puterror_fd(char const *msg, int ret, int fd);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-char		*ft_strchr(const char *s, int c);
-int			ft_strcmp(const char *s1, const char *s2);
-void		ft_strdel(char **as);
-char		*ft_strdup(const char *s1);
-int			ft_strequ(char const *s1, char const *s2);
-size_t		ft_strlchr(const char *str, int c);
-size_t		ft_strlen(const char *s);
-char		*ft_strsub(char const *s, unsigned int start, size_t len);
-char		*ft_strnew(size_t size);
-char		*ft_strcpy(char *dst, const char *src);
-char		*ft_strcat(char *s1, const char *s2);
-char		*ft_strjoin(char const *s1, char const *s2);
-int			ft_putnbr_fd(int n, int fd);
-void		ft_mini_printf(const char *format, ...);
-char		*ft_itoa(int n);
+int					ft_atoi(const char *str);
+int					ft_isdigit(int c);
+int					ft_isspace(int c);
+int					get_next_line(const int fd, char **line);
+void				ft_gnl_free(void *content, size_t size);
+t_list				**ft_gnl_list(void);
+void				ft_lst_rec_free(t_list *first);
+void				ft_lstdelnode(t_list **head, t_list *node, \
+									void (*del)(void*, size_t));
+void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
+void				ft_lstadd(t_list **alst, t_list *new);
+t_list				*ft_lstfind(t_list *begin_list, void *data, int (*cmp)());
+void				ft_lstdelnode(t_list **head, t_list *node, \
+									void (*del)(void*, size_t));
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lstforeach(t_list *lst, void (*f)());
+t_list				*ft_lstpush(t_list *first, void *item);
+void				ft_memdel(void **ap);
+int					ft_putstr_fd(char const *s, int fd);
+int					ft_putchar_fd(char c, int fd);
+int					ft_putendl_fd(char const *s, int fd);
+void				ft_puterror_fd(char const *msg, int ret, int fd);
+void				*ft_memcpy(void *dst, const void *src, size_t n);
+char				*ft_strchr(const char *s, int c);
+int					ft_strcmp(const char *s1, const char *s2);
+void				ft_strdel(char **as);
+char				*ft_strdup(const char *s1);
+int					ft_strequ(char const *s1, char const *s2);
+size_t				ft_strlchr(const char *str, int c);
+size_t				ft_strlen(const char *s);
+char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strnew(size_t size);
+char				*ft_strcpy(char *dst, const char *src);
+char				*ft_strcat(char *s1, const char *s2);
+char				*ft_strjoin(char const *s1, char const *s2);
+int					ft_putnbr_fd(int n, int fd);
+void				ft_mini_printf(const char *format, ...);
+char				*ft_itoa(int n);
 
 #endif

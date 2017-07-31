@@ -24,7 +24,7 @@ int			get_ant_total(void)
 	line = NULL;
 	if (get_next_line(0, &line) > 0)
 	{
-		while (*line == '#')
+		while (line[0] == '#')
 		{
 			free(line);
 			if (get_next_line(0, &line) == ERROR)

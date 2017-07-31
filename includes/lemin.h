@@ -16,7 +16,7 @@
 # include "libft.h"
 
 /*
-** ...
+** Room macros.
 */
 
 # define IGNORE			(0)
@@ -25,7 +25,7 @@
 # define ENDROOM		(3)
 
 /*
-** ...
+** File descriptor macros.
 */
 
 # define ERROR			(-1)
@@ -41,7 +41,7 @@
 # define FT_STD_ERR		(2)
 
 /*
-** ...
+** Color macros.
 */
 
 # define RESET_COLOUR	(0)
@@ -51,7 +51,7 @@
 # define LIGHT_YELLOW	(93)
 
 /*
-** ...
+** Logo and debug ant macros.
 */
 
 # define ANT_NUM		(3)
@@ -61,13 +61,13 @@
 # define LOGO_HEIGHT	(7)
 
 /*
-** ...
+** Debug time macro.
 */
 
 # define DEBUG_SLEEP	(420000)
 
 /*
-** Global variables
+** Global variables.
 */
 
 # ifndef GLOBAL_VAR
@@ -79,7 +79,7 @@ extern char const		g_ant[ANT_NUM][ANT_HEIGHT][ANT_WIDTH];
 # endif
 
 /*
-** ...
+** Path structure.
 */
 
 typedef struct			s_path
@@ -89,7 +89,7 @@ typedef struct			s_path
 }						t_path;
 
 /*
-** ...
+** Room structure.
 */
 
 typedef struct			s_room
@@ -104,7 +104,7 @@ typedef struct			s_room
 }						t_room;
 
 /*
-** ...
+** Ant structure.
 */
 
 typedef struct			s_ant
@@ -116,7 +116,7 @@ typedef struct			s_ant
 }						t_ant;
 
 /*
-** ...
+** Parameter structure.
 */
 
 typedef struct			s_param
@@ -128,13 +128,13 @@ typedef struct			s_param
 }						t_param;
 
 /*
-** ...
+** Lemin structure.
 */
 
 typedef struct			s_lemin
 {
 	int					ant_total;
-	long int		moves;
+	long int			moves;
 	t_ant				*ant_list;
 	t_list				*room_list;
 	t_list				*path_list;
@@ -142,7 +142,7 @@ typedef struct			s_lemin
 }						t_lemin;
 
 /*
-** ...
+** Lemin functions prototypes.
 */
 
 int						lemin_read(t_lemin *lemin);
@@ -154,26 +154,11 @@ void					lemin_start(t_lemin *lemin);
 void					lemin_print(t_lemin *lemin);
 void					lemin_debug(t_lemin *lemin, t_ant *ant, t_room *room);
 t_lemin					*lemin_init(int total_params, char *params[]);
-
-/*
-** ...
-*/
-
 int						find_room(void *room, int flag);
-
-/*
-** ...
-*/
-
 int						get_ant_total(void);
 void					get_params(int argc, char *argv[], t_lemin *init);
 t_room					*get_room_name(char *name, t_list *list);
 t_room					*get_room_flag(int flag, t_list *list);
-
-/*
-** ...
-*/
-
 t_ant					*init_ants(int total_ants, t_list *rooms);
 t_path					*init_path(char *line);
 t_room					*init_room(char *line, int room_flag);

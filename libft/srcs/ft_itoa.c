@@ -33,7 +33,6 @@ static size_t	ft_nbrlen(int nbr, int base)
 	return (len);
 }
 
-
 /*
 ** Takes an int, and converts it to a null-terminated string.
 */

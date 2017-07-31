@@ -21,7 +21,7 @@ static int	read_command(char *line)
 	int		ret;
 
 	ret = NORMAL;
-	if (*line != '#')
+	if (line[0] != '#')
 		ret = IGNORE;
 	else if (ft_strequ("##start", line))
 		ret = STARTROOM;
@@ -69,12 +69,11 @@ static int	read_path(char *line, t_list *rooms)
 	{
 		tmp.door1 = ft_strsub(line, 0, ft_strlchr(line, '-'));
 		tmp.door2 = ft_strdup(line + ft_strlchr(line, '-') + 1);
-		if ((get_room_name(tmp.door1, rooms)
-			&& get_room_name(tmp.door2, rooms)))
+		if (get_room_name(tmp.door1, rooms) && get_room_name(tmp.door2, rooms))
 		{
+			ret = 1;
 			free(tmp.door1);
 			free(tmp.door2);
-			ret = 1;
 		}
 		else
 		{
@@ -87,6 +86,8 @@ static int	read_path(char *line, t_list *rooms)
 
 /*
 ** Read a line and check if it's a command, path, or a comment.
+** When it reads a line that isn't a command, path, or comment,
+** breaks from the while loop.
 */
 
 int			lemin_read(t_lemin *lemin)
@@ -113,6 +114,6 @@ int			lemin_read(t_lemin *lemin)
 		else
 			break ;
 	}
-	free(line);
+	ft_memdel((void **)&line);
 	return (ret);
 }
