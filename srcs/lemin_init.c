@@ -16,7 +16,7 @@
 ** Initialize the total number of ants, room, path and ant lists.
 */
 
-void init_values(t_lemin *init)
+static void	init_values(t_lemin *init)
 {
 	if ((init->ant_total = get_ant_total()) == FALSE)
 	{
