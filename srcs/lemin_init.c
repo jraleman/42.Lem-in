@@ -19,20 +19,11 @@
 static void	init_values(t_lemin *init)
 {
 	if ((init->ant_total = get_ant_total()) == FALSE)
-	{
-		lemin_end(init);
 		ft_puterror_fd("Error: Invalid number of ants.", ERROR, FT_STD_ERR);
-	}
 	if (lemin_read(init) == ERROR)
-	{
-		lemin_end(init);
 		ft_puterror_fd("Error: Reading failed.", ERROR, FT_STD_ERR);
-	}
 	if (!init->room_list || !init->path_list)
-	{
-		lemin_end(init);
 		ft_puterror_fd("Error: Missing rooms or paths.", ERROR, FT_STD_ERR);
-	}
 	init->ant_list = init_ants(init->ant_total, init->room_list);
 }
 

@@ -216,5 +216,8 @@ char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_putnbr_fd(int n, int fd);
 void				ft_mini_printf(const char *format, ...);
 char				*ft_itoa(int n);
+void				ft_bzero(void *s, size_t n);
+void				ft_strclr(char *s);
+char				*ft_strncat(char *s1, const char *s2, size_t n);
 
 #endif
