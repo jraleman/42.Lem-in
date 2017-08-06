@@ -67,6 +67,12 @@
 # define DEBUG_SLEEP	(420000)
 
 /*
+** Set flag and memdel macro.
+*/
+
+# define SET_FLAG(line)	read_command(line);ft_memdel((void **)&line)
+
+/*
 ** Global variables.
 */
 
@@ -134,6 +140,7 @@ typedef struct			s_param
 typedef struct			s_lemin
 {
 	int					ant_total;
+	int					rooms_done;
 	long int			moves;
 	t_ant				*ant_list;
 	t_list				*room_list;

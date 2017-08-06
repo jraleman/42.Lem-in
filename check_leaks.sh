@@ -11,5 +11,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-./lem-in --debug < "$1" & leaks lem-in ; \
+# With valgrind
+valgrind --tool=memcheck --leak-check=yes --track-origins=yes \
+         --leak-check=full ./lem-in < resources/tests/maps/pdf_map1
+
+# With leaks
+./lem-in < resources/tests/maps/europe & leaks lem-in ; \
 killall -9 lem-in

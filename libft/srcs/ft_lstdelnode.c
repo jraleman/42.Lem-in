@@ -30,4 +30,6 @@ void	ft_lstdelnode(t_list **head, t_list *node, void (*del)(void*, size_t))
 		temp->next = temp->next->next;
 	}
 	ft_lstdelone(&node, del);
+	free(node);
+	node = NULL;
 }

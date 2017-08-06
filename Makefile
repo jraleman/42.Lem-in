@@ -36,7 +36,7 @@ OBJ        = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 LIBFT      = $(addprefix $(LIBFT_DIR), libft.a)
 
 # Libft and Minilibx linkers
-LNK        = -L $(LIBFT_DIR) -lft -Ofast
+LNK        = -L $(LIBFT_DIR) -lft
 
 # all rule
 all: obj $(LIBFT) $(NAME)
@@ -52,6 +52,7 @@ $(LIBFT):
 $(NAME): $(OBJ)
 	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compiling... Wait a sec."
 	@gcc $(OBJ) $(LNK) -lm -o $(NAME)
+#	@gcc $(OBJ) $(LNK) -lm -fsanitize=address -o $(NAME)
 	@echo "(•̀ᴗ•́)و $(NAME) generated!"
 
 # clean rule

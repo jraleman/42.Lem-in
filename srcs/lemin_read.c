@@ -90,21 +90,22 @@ int			lemin_read(t_lemin *lemin)
 	int		ret;
 	char	*line;
 	int		flag;
-	int		rooms_done;
 
 	flag = NORMAL;
-	rooms_done = 0;
+	lemin->rooms_done = 0;
 	while ((ret = get_next_line(0, &line)) > 0)
 	{
 		if (read_command(line))
-			flag = (flag == NORMAL) ? read_command(line) : flag;
-		else if (read_room(line) && !rooms_done)
+		{
+			flag = (flag != NORMAL) ? flag : SET_FLAG(line);
+		}
+		else if (read_room(line) && !lemin->rooms_done)
 		{
 			lemin->room_list = ft_lstpush(lemin->room_list, \
 											init_room(line, flag));
 			flag = NORMAL;
 		}
-		else if (read_path(line, lemin->room_list) && (rooms_done = 1))
+		else if (read_path(line, lemin->room_list) && (lemin->rooms_done = 1))
 			lemin->path_list = ft_lstpush(lemin->path_list, init_path(line));
 		else
 			break ;

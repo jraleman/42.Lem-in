@@ -37,6 +37,7 @@ t_lemin		*lemin_init(int total_params, char *params[])
 
 	if (!(init = (t_lemin *)malloc(sizeof(t_lemin))))
 		ft_puterror_fd("Memory allocation failed.", MALLC_ERR, FT_STD_ERR);
+	init->moves = 0;
 	init->room_list = NULL;
 	init->path_list = NULL;
 	init->param.debug = FALSE;

@@ -12,79 +12,83 @@
 
 #include "libft.h"
 
-static int	gnl_read(int fd, char **line, char *content)
+static char	*re_alloc(char *str, size_t size)
 {
-	char	buf[BUFF_SIZE + 1];
-	char	*tmp;
-	char	*ptr;
-	int		ret;
+	char	*p;
+	size_t	i;
 
-	content[0] = '\0';
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	p = NULL;
+	i = 0;
+	if (str)
 	{
-		GNL_CHK(ret < 0);
-		buf[ret] = '\0';
-		if ((ptr = ft_strchr(buf, '\n')) != NULL)
-			ft_strcpy(content, ptr + 1);
-		if (ptr != NULL)
-			*ptr = '\0';
-		tmp = *line;
-		GNL_CHK((*line = ft_strjoin(*line, buf)) == NULL);
-		ft_strdel(&tmp);
-		if (ptr)
-			return (1);
+		p = (char *)malloc(sizeof(char) * (size));
+		if (!p)
+			return (NULL);
+		ft_bzero(p, size);
+		ft_strcpy(p, str);
+		free(str);
+		str = NULL;
 	}
-	if (*line[0] == '\0')
-		ft_strdel(line);
-	else
+	return (p);
+}
+
+static int	ft_not_bull(char *str)
+{
+	if (str[0] != '\0')
 		return (1);
 	return (0);
 }
 
-static int	gnl_cmp_fd(t_gnl *node, int *fd)
+static char	*ft_strrsub(char *s, size_t len)
 {
-	return (node->fd - *fd);
-}
+	char			*p;
+	size_t			i;
+	size_t			start;
 
-t_list		**ft_gnl_list(void)
-{
-	static t_list	*head;
-
-	return (&head);
-}
-
-void		ft_gnl_free(void *content, size_t size)
-{
-	(void)size;
-	ft_strdel(&((t_gnl *)content)->file_content);
-	free(content);
+	i = 0;
+	if (!s)
+		return (NULL);
+	p = (char *)malloc(sizeof(char) * len + 1);
+	if (!p)
+		return (NULL);
+	start = ft_strlen(s) - len;
+	while (i < len)
+	{
+		p[i] = s[i + start];
+		i++;
+	}
+	p[i] = '\0';
+	ft_strclr(s);
+	free(s);
+	s = NULL;
+	return (p);
 }
 
 int			get_next_line(const int fd, char **line)
 {
-	t_list	**head;
-	t_list	*tmp;
-	t_gnl	new;
-	char	*ptr;
-	int		ret;
+	char		buf[BUFF_SIZE + 1];
+	char		*tmp;
+	static char *save;
+	int			ret;
 
-	GNL_CHK(fd < 0 || !line);
-	head = ft_gnl_list();
-	if ((tmp = ft_lstfind(*head, (void *)&fd, gnl_cmp_fd)) == NULL)
+	if (fd < 0 || line == NULL || read(fd, buf, 0) < 0)
+		return (-1);
+	if (!save)
+		save = ft_strnew(BUFF_SIZE + 1);
+	ft_bzero(buf, BUFF_SIZE + 1);
+	while (!ft_strchr(buf, '\n') && (ret = read(fd, buf, BUFF_SIZE)))
 	{
-		new.fd = fd;
-		new.file_content = ft_strnew(BUFF_SIZE);
-		ft_lstadd(head, ft_lstnew(&new, sizeof(t_gnl)));
-		tmp = *head;
+		save = re_alloc(save, ft_strlen(save) + ret + 1);
+		save = ft_strncat(save, buf, ret);
 	}
-	GNL_CHK((*line = ft_strdup(((t_gnl*)tmp->content)->file_content)) == NULL);
-	if ((ptr = ft_strchr(*line, '\n')) != NULL)
+	if ((tmp = ft_strchr(save, '\n')))
 	{
-		ft_strcpy((((t_gnl *)tmp->content)->file_content), ptr + 1);
-		*ptr = '\0';
+		*line = ft_strsub(save, 0, ft_strlen(save) - ft_strlen(tmp));
+		save = ft_strrsub(save, ft_strlen(&tmp[1]));
 		return (1);
 	}
-	if ((ret = gnl_read(fd, line, (((t_gnl*)tmp->content)->file_content))) == 0)
-		ft_lstdelnode(head, tmp, ft_gnl_free);
-	return (ret);
+	*line = ft_strdup(save);
+	ret = ft_not_bull(save);
+	ft_strclr(save);
+	return (ret == 0 ? 0 : 1);
 }

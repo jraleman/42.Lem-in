@@ -31,6 +31,7 @@ OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 CC      := gcc
 CFLAGS  += -Wall -Wextra -Werror
+#CFLAGS  += -Wall -Wextra -Werror -fsanitize=address
 LFLAGS  += -I.
 AR      := ar rc
 RLIB    := ranlib
